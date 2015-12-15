@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="9531"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="QingDictResultApp">
+            <connections>
+                <outlet property="delegate" destination="lTh-UW-xRo" id="HuS-sZ-kKo"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="QingDictResultApp"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" deferred="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="2xD-be-uVR" userLabel="ResultWindow" customClass="ResultWindow" customModule="QingDict_Result">
+            <windowStyleMask key="styleMask" titled="YES" resizable="YES" utility="YES" nonactivatingPanel="YES" HUD="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" ignoresCycle="YES" fullScreenAuxiliary="YES" fullScreenDisallowsTiling="YES"/>
+            <rect key="contentRect" x="90" y="125" width="436" height="290"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="200" height="200"/>
+            <view key="contentView" focusRingType="none" id="FxO-2J-5ey">
+                <rect key="frame" x="0.0" y="0.0" width="436" height="290"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView hidden="YES" maintainsBackForwardList="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itd-fc-zaf">
+                        <rect key="frame" x="0.0" y="0.0" width="436" height="290"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                        <connections>
+                            <outlet property="frameLoadDelegate" destination="2xD-be-uVR" id="ySI-AW-2Na"/>
+                        </connections>
+                    </webView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Itd-fc-zaf" secondAttribute="trailing" id="F9Q-jC-fgc"/>
+                    <constraint firstItem="Itd-fc-zaf" firstAttribute="top" secondItem="FxO-2J-5ey" secondAttribute="top" id="J6f-KN-3EZ"/>
+                    <constraint firstItem="Itd-fc-zaf" firstAttribute="leading" secondItem="FxO-2J-5ey" secondAttribute="leading" id="PjZ-fR-Bsk"/>
+                    <constraint firstAttribute="bottom" secondItem="Itd-fc-zaf" secondAttribute="bottom" id="aq2-sV-Fgb"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="animWindow" destination="Mg7-UC-WaI" id="TWB-a8-mkf"/>
+                <outlet property="animWindowText" destination="CRX-c4-Xtl" id="D4j-yH-Fek"/>
+                <outlet property="delegate" destination="lTh-UW-xRo" id="rPQ-xZ-ypu"/>
+                <outlet property="starBtn" destination="Ma8-Tr-vqn" id="sVv-6p-9BB"/>
+                <outlet property="starPopoverCtrl" destination="qqa-MJ-01N" id="uIE-hD-Jn4"/>
+                <outlet property="titlebarAccCtrl" destination="xVz-AZ-g1T" id="vLp-53-I7B"/>
+                <outlet property="webView" destination="Itd-fc-zaf" id="izi-95-5cx"/>
+            </connections>
+            <point key="canvasLocation" x="312" y="-3"/>
+        </window>
+        <customObject id="lTh-UW-xRo" customClass="ResultAppDelegate" customModule="QingDict_Result" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="2xD-be-uVR" id="igW-OZ-wFC"/>
+            </connections>
+        </customObject>
+        <button hidden="YES" verticalHuggingPriority="750" id="Ma8-Tr-vqn" userLabel="starBtn">
+            <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="star_default" imagePosition="only" alignment="center" alternateImage="star_checked" imageScaling="proportionallyUpOrDown" inset="2" id="GYu-4c-IDi">
+                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+                <connections>
+                    <action selector="star:" target="2xD-be-uVR" id="E3u-i6-LqA"/>
+                </connections>
+            </buttonCell>
+            <point key="canvasLocation" x="403" y="-282"/>
+        </button>
+        <viewController id="xVz-AZ-g1T" customClass="NSTitlebarAccessoryViewController">
+            <connections>
+                <outlet property="view" destination="Ma8-Tr-vqn" id="QGx-ld-W0g"/>
+            </connections>
+        </viewController>
+        <viewController id="qqa-MJ-01N" userLabel="starViewController" customClass="StarViewController" customModule="QingDict_Result" customModuleProvider="target">
+            <connections>
+                <outlet property="popOver" destination="zUx-FN-SSb" id="1cE-jq-hci"/>
+                <outlet property="txtPron" destination="Nmc-xb-iLI" id="hI3-mp-Tap"/>
+                <outlet property="txtTrans" destination="PiF-A0-ZuO" id="AG5-yN-guR"/>
+                <outlet property="txtWord" destination="3rd-9t-zOn" id="6aI-uu-39N"/>
+                <outlet property="view" destination="MBS-bX-H0j" id="nVe-7f-Ur5"/>
+            </connections>
+        </viewController>
+        <popover appearance="HUD" behavior="semitransient" id="zUx-FN-SSb" userLabel="starPopover">
+            <connections>
+                <outlet property="contentViewController" destination="qqa-MJ-01N" id="Dc6-mA-oJW"/>
+            </connections>
+        </popover>
+        <customView id="MBS-bX-H0j" userLabel="Star View">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="154"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3rd-9t-zOn">
+                    <rect key="frame" x="8" y="125" width="164" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="Pragmatism" placeholderString="原文" usesSingleLineMode="YES" id="3j8-Zq-dy4">
+                        <font key="font" metaFont="systemMedium" size="15"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lk3-JW-reE">
+                    <rect key="frame" x="10" y="9" width="72" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="hUl-hB-6va"/>
+                    </constraints>
+                    <buttonCell key="cell" type="roundRect" title="删除" bezelStyle="roundedRect" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Fm-9p-Oq8">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deleteStar:" target="qqa-MJ-01N" id="t0O-LW-gut"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nmc-xb-iLI">
+                    <rect key="frame" x="8" y="106" width="138" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="[wo:d]" placeholderString="音标" usesSingleLineMode="YES" id="xG6-YO-z21">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-eA-fW8">
+                    <rect key="frame" x="98" y="9" width="72" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="72" id="90p-UV-cCC"/>
+                    </constraints>
+                    <buttonCell key="cell" type="roundRect" title="确定" bezelStyle="roundedRect" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GLd-zF-HfZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="confirmStar:" target="qqa-MJ-01N" id="ys0-CI-Ry7"/>
+                    </connections>
+                </button>
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PiF-A0-ZuO">
+                    <rect key="frame" x="10" y="36" width="160" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="VxY-jh-1Kw"/>
+                    </constraints>
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" title="实用主义" drawsBackground="YES" id="Zon-vI-tJO">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <outlet property="delegate" destination="qqa-MJ-01N" id="90i-Tc-SCo"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PiF-A0-ZuO" firstAttribute="leading" secondItem="MBS-bX-H0j" secondAttribute="leading" constant="10" id="2ht-hM-tXN"/>
+                <constraint firstItem="PiF-A0-ZuO" firstAttribute="top" secondItem="Nmc-xb-iLI" secondAttribute="bottom" constant="10" id="8CQ-LZ-4Mc"/>
+                <constraint firstAttribute="bottom" secondItem="4ie-eA-fW8" secondAttribute="bottom" constant="10" id="9Eu-gt-RSZ"/>
+                <constraint firstAttribute="trailing" secondItem="Nmc-xb-iLI" secondAttribute="trailing" constant="36" id="BnI-8S-ozT"/>
+                <constraint firstItem="Nmc-xb-iLI" firstAttribute="leading" secondItem="MBS-bX-H0j" secondAttribute="leading" constant="10" id="FFw-UG-jwD"/>
+                <constraint firstAttribute="trailing" secondItem="3rd-9t-zOn" secondAttribute="trailing" constant="10" id="JCf-TP-QNQ"/>
+                <constraint firstItem="lk3-JW-reE" firstAttribute="leading" secondItem="MBS-bX-H0j" secondAttribute="leading" constant="10" id="KKU-BG-2ZH"/>
+                <constraint firstItem="3rd-9t-zOn" firstAttribute="leading" secondItem="MBS-bX-H0j" secondAttribute="leading" constant="10" id="Mnu-uM-87U"/>
+                <constraint firstItem="4ie-eA-fW8" firstAttribute="top" secondItem="PiF-A0-ZuO" secondAttribute="bottom" constant="10" id="RCM-89-HJZ"/>
+                <constraint firstAttribute="trailing" secondItem="PiF-A0-ZuO" secondAttribute="trailing" constant="10" id="SmO-Et-f6G"/>
+                <constraint firstAttribute="trailing" secondItem="4ie-eA-fW8" secondAttribute="trailing" constant="10" id="X54-DS-Ilf"/>
+                <constraint firstItem="Nmc-xb-iLI" firstAttribute="top" secondItem="3rd-9t-zOn" secondAttribute="bottom" constant="2" id="YS3-mF-ROd"/>
+                <constraint firstAttribute="bottom" secondItem="lk3-JW-reE" secondAttribute="bottom" constant="10" id="aBQ-7O-4Ce"/>
+                <constraint firstItem="3rd-9t-zOn" firstAttribute="top" secondItem="MBS-bX-H0j" secondAttribute="top" constant="10" id="fg3-ir-os7"/>
+            </constraints>
+            <point key="canvasLocation" x="177" y="-327"/>
+        </customView>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Mg7-UC-WaI" userLabel="AnimWindow" customClass="NSPanel">
+            <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES" HUD="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" ignoresCycle="YES" fullScreenAuxiliary="YES" fullScreenDisallowsTiling="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="139" y="81" width="21" height="18"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <view key="contentView" id="orj-zb-EvX">
+                <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CRX-c4-Xtl">
+                        <rect key="frame" x="4" y="1" width="13" height="19"/>
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" continuous="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="a" placeholderString="" drawsBackground="YES" usesSingleLineMode="YES" id="nAo-dp-B8L">
+                            <font key="font" metaFont="systemMedium" size="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="CRX-c4-Xtl" secondAttribute="trailing" constant="4" id="2fp-kh-dak"/>
+                    <constraint firstItem="CRX-c4-Xtl" firstAttribute="leading" secondItem="orj-zb-EvX" secondAttribute="leading" constant="4" id="Ncz-3r-XSO"/>
+                    <constraint firstItem="CRX-c4-Xtl" firstAttribute="centerY" secondItem="orj-zb-EvX" secondAttribute="centerY" constant="-1" id="lV7-uY-GA7"/>
+                </constraints>
+            </view>
+            <connections>
+                <binding destination="vb9-AO-Ibq" name="title" keyPath="values" id="t6v-Ep-kxr"/>
+            </connections>
+            <point key="canvasLocation" x="348.5" y="-396"/>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="vb9-AO-Ibq"/>
+    </objects>
+    <resources>
+        <image name="star_checked" width="64" height="64"/>
+        <image name="star_default" width="64" height="64"/>
+    </resources>
+</document>

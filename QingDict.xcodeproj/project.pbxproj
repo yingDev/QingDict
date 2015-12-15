@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E224A041C1E879A00B60244 /* WordbookDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A031C1E879A00B60244 /* WordbookDataController.swift */; };
+		2E224A061C1E94F200B60244 /* WordbookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A051C1E94F200B60244 /* WordbookEntry.swift */; };
+		2E224A081C1E999A00B60244 /* UserTextSelectionExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */; };
+		2E6436F01C1BE7E70004DCF4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */; };
+		2E88BA1F1C158A1100C15397 /* AXAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88BA1E1C158A1100C15397 /* AXAlertController.swift */; };
+		2EA748FD1C19620200024BA9 /* WordbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA748FC1C19620200024BA9 /* WordbookViewController.swift */; };
+		2EA749011C19668800024BA9 /* WordbookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA749001C19668800024BA9 /* WordbookRowView.swift */; };
+		2EAE8AFB1C191D05002C3AEA /* StatusWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */; };
+		2EB54D8C1C15560C00E1A312 /* AXAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB54D8B1C15560C00E1A312 /* AXAlert.xib */; };
+		2EC63AB91C1A72050070B168 /* StatusWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC63AB81C1A72050070B168 /* StatusWindowController.swift */; };
+		2ED2264B1C0FDE590033AD4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */; };
+		2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED2264C1C0FDE590033AD4C /* Assets.xcassets */; };
+		2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */; };
+		2EEFBAB21C151F5A0098E4A9 /* MouseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */; };
+		2EEFBABA1C1537720098E4A9 /* ResultAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB91C1537720098E4A9 /* ResultAppDelegate.swift */; };
+		2EEFBABC1C1537720098E4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBABB1C1537720098E4A9 /* Assets.xcassets */; };
+		2EEFBAC41C15377E0098E4A9 /* QingDict-Result.app in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */; };
+		2EEFBACF1C1544160098E4A9 /* ResultWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBACD1C1544160098E4A9 /* ResultWindow.swift */; };
+		2EEFBAD01C1544160098E4A9 /* ResultWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBACE1C1544160098E4A9 /* ResultWindow.xib */; };
+		2EEFBAD21C15444D0098E4A9 /* QingDictResultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAD11C15444D0098E4A9 /* QingDictResultApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EEFBAB61C1537720098E4A9;
+			remoteInfo = "QingDict-Result";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E224A031C1E879A00B60244 /* WordbookDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookDataController.swift; sourceTree = "<group>"; };
+		2E224A051C1E94F200B60244 /* WordbookEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookEntry.swift; sourceTree = "<group>"; };
+		2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTextSelectionExtractor.swift; sourceTree = "<group>"; };
+		2E6436EF1C1BE7E70004DCF4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2E88BA1E1C158A1100C15397 /* AXAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXAlertController.swift; sourceTree = "<group>"; };
+		2EA748FC1C19620200024BA9 /* WordbookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookViewController.swift; sourceTree = "<group>"; };
+		2EA749001C19668800024BA9 /* WordbookRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookRowView.swift; sourceTree = "<group>"; };
+		2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusWindow.xib; sourceTree = "<group>"; };
+		2EB54D8B1C15560C00E1A312 /* AXAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXAlert.xib; sourceTree = "<group>"; };
+		2EC63AB81C1A72050070B168 /* StatusWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusWindowController.swift; sourceTree = "<group>"; };
+		2ED226471C0FDE590033AD4C /* QingDict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QingDict.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2ED2264C1C0FDE590033AD4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2ED226511C0FDE590033AD4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MouseMonitor.swift; sourceTree = "<group>"; };
+		2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QingDict-Result.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EEFBAB91C1537720098E4A9 /* ResultAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAppDelegate.swift; sourceTree = "<group>"; };
+		2EEFBABB1C1537720098E4A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EEFBAC01C1537720098E4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EEFBACD1C1544160098E4A9 /* ResultWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWindow.swift; sourceTree = "<group>"; };
+		2EEFBACE1C1544160098E4A9 /* ResultWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultWindow.xib; sourceTree = "<group>"; };
+		2EEFBAD11C15444D0098E4A9 /* QingDictResultApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QingDictResultApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ED226441C0FDE590033AD4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEFBAB41C1537720098E4A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ED2263E1C0FDE590033AD4C = {
+			isa = PBXGroup;
+			children = (
+				2ED2265A1C0FFB940033AD4C /* Frameworks */,
+				2ED226491C0FDE590033AD4C /* QingDict */,
+				2EEFBAB81C1537720098E4A9 /* QingDict-Result */,
+				2ED226481C0FDE590033AD4C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2ED226481C0FDE590033AD4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ED226471C0FDE590033AD4C /* QingDict.app */,
+				2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2ED226491C0FDE590033AD4C /* QingDict */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */,
+				2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */,
+				2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */,
+				2E88BA1E1C158A1100C15397 /* AXAlertController.swift */,
+				2E224A051C1E94F200B60244 /* WordbookEntry.swift */,
+				2EA748FC1C19620200024BA9 /* WordbookViewController.swift */,
+				2EA749001C19668800024BA9 /* WordbookRowView.swift */,
+				2E224A031C1E879A00B60244 /* WordbookDataController.swift */,
+				2EC63AB81C1A72050070B168 /* StatusWindowController.swift */,
+				2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */,
+				2EB54D8B1C15560C00E1A312 /* AXAlert.xib */,
+				2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */,
+				2ED226511C0FDE590033AD4C /* Info.plist */,
+				2ED2264C1C0FDE590033AD4C /* Assets.xcassets */,
+			);
+			path = QingDict;
+			sourceTree = "<group>";
+		};
+		2ED2265A1C0FFB940033AD4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EEFBAB81C1537720098E4A9 /* QingDict-Result */ = {
+			isa = PBXGroup;
+			children = (
+				2EEFBAD11C15444D0098E4A9 /* QingDictResultApp.swift */,
+				2EEFBAB91C1537720098E4A9 /* ResultAppDelegate.swift */,
+				2EEFBACD1C1544160098E4A9 /* ResultWindow.swift */,
+				2EEFBACE1C1544160098E4A9 /* ResultWindow.xib */,
+				2EEFBAC01C1537720098E4A9 /* Info.plist */,
+				2EEFBABB1C1537720098E4A9 /* Assets.xcassets */,
+			);
+			path = "QingDict-Result";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ED226461C0FDE590033AD4C /* QingDict */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ED226541C0FDE590033AD4C /* Build configuration list for PBXNativeTarget "QingDict" */;
+			buildPhases = (
+				2ED226431C0FDE590033AD4C /* Sources */,
+				2ED226441C0FDE590033AD4C /* Frameworks */,
+				2ED226451C0FDE590033AD4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */,
+			);
+			name = QingDict;
+			productName = QingDict;
+			productReference = 2ED226471C0FDE590033AD4C /* QingDict.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2EEFBAB61C1537720098E4A9 /* QingDict-Result */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EEFBAC11C1537720098E4A9 /* Build configuration list for PBXNativeTarget "QingDict-Result" */;
+			buildPhases = (
+				2EEFBAB31C1537720098E4A9 /* Sources */,
+				2EEFBAB41C1537720098E4A9 /* Frameworks */,
+				2EEFBAB51C1537720098E4A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QingDict-Result";
+			productName = "QingDict-Result";
+			productReference = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ED2263F1C0FDE590033AD4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = YingDev.com;
+				TargetAttributes = {
+					2ED226461C0FDE590033AD4C = {
+						CreatedOnToolsVersion = 7.1.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+					2EEFBAB61C1537720098E4A9 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 2ED226421C0FDE590033AD4C /* Build configuration list for PBXProject "QingDict" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2ED2263E1C0FDE590033AD4C;
+			productRefGroup = 2ED226481C0FDE590033AD4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ED226461C0FDE590033AD4C /* QingDict */,
+				2EEFBAB61C1537720098E4A9 /* QingDict-Result */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ED226451C0FDE590033AD4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EB54D8C1C15560C00E1A312 /* AXAlert.xib in Resources */,
+				2EAE8AFB1C191D05002C3AEA /* StatusWindow.xib in Resources */,
+				2EEFBAC41C15377E0098E4A9 /* QingDict-Result.app in Resources */,
+				2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEFBAB51C1537720098E4A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEFBAD01C1544160098E4A9 /* ResultWindow.xib in Resources */,
+				2EEFBABC1C1537720098E4A9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ED226431C0FDE590033AD4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E224A041C1E879A00B60244 /* WordbookDataController.swift in Sources */,
+				2EEFBAB21C151F5A0098E4A9 /* MouseMonitor.swift in Sources */,
+				2ED2264B1C0FDE590033AD4C /* AppDelegate.swift in Sources */,
+				2EA749011C19668800024BA9 /* WordbookRowView.swift in Sources */,
+				2E224A061C1E94F200B60244 /* WordbookEntry.swift in Sources */,
+				2E6436F01C1BE7E70004DCF4 /* Model.xcdatamodeld in Sources */,
+				2EA748FD1C19620200024BA9 /* WordbookViewController.swift in Sources */,
+				2E88BA1F1C158A1100C15397 /* AXAlertController.swift in Sources */,
+				2E224A081C1E999A00B60244 /* UserTextSelectionExtractor.swift in Sources */,
+				2EC63AB91C1A72050070B168 /* StatusWindowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEFBAB31C1537720098E4A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEFBACF1C1544160098E4A9 /* ResultWindow.swift in Sources */,
+				2EEFBAD21C15444D0098E4A9 /* QingDictResultApp.swift in Sources */,
+				2EEFBABA1C1537720098E4A9 /* ResultAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EEFBAB61C1537720098E4A9 /* QingDict-Result */;
+			targetProxy = 2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2ED226521C0FDE590033AD4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2ED226531C0FDE590033AD4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2ED226551C0FDE590033AD4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yuandong Yin (M8V62C96E3)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = QingDict/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yingdev.QingDict;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2ED226561C0FDE590033AD4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Yuandong Yin (M8V62C96E3)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = QingDict/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yingdev.QingDict;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2EEFBAC21C1537720098E4A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "QingDict-Result/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2EEFBAC31C1537720098E4A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "QingDict-Result/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ED226421C0FDE590033AD4C /* Build configuration list for PBXProject "QingDict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED226521C0FDE590033AD4C /* Debug */,
+				2ED226531C0FDE590033AD4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ED226541C0FDE590033AD4C /* Build configuration list for PBXNativeTarget "QingDict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED226551C0FDE590033AD4C /* Debug */,
+				2ED226561C0FDE590033AD4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EEFBAC11C1537720098E4A9 /* Build configuration list for PBXNativeTarget "QingDict-Result" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EEFBAC21C1537720098E4A9 /* Debug */,
+				2EEFBAC31C1537720098E4A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E6436EF1C1BE7E70004DCF4 /* Model.xcdatamodel */,
+			);
+			currentVersion = 2E6436EF1C1BE7E70004DCF4 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2ED2263F1C0FDE590033AD4C /* Project object */;
+}
