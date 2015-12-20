@@ -8,6 +8,14 @@ import CoreGraphics
 
 private func callback(proxy: CGEventTapProxy, type: CGEventType,event: CGEvent, ptr: UnsafeMutablePointer<Void>) -> Unmanaged<CGEvent>?
 {
+	//TODO: handle this
+	//失效
+	if type == CGEventType.TapDisabledByTimeout || type == CGEventType.TapDisabledByUserInput
+	{
+		print("MouseMonitor: disabled by \(type)")
+		return Unmanaged<CGEvent>.passUnretained(event)
+	}
+	
     let selv = Unmanaged<MouseMonitor>.fromOpaque(COpaquePointer(ptr)).takeUnretainedValue()
     if(selv.handler != nil)
     {
@@ -41,7 +49,7 @@ public class MouseMonitor
         _tap = CGEventTapCreate(CGEventTapLocation.CGHIDEventTap,
                 CGEventTapPlacement.HeadInsertEventTap,
                 CGEventTapOptions.Default,
-                CGEventMask((1 << CGEventType.RightMouseDown.rawValue) | (1 << CGEventType.RightMouseUp.rawValue)),
+                CGEventMask((1 << CGEventType.RightMouseDown.rawValue) /*| (1 << CGEventType.RightMouseUp.rawValue)*/),
                 callback, UnsafeMutablePointer<Void>(Unmanaged.passUnretained(self).toOpaque()))
 
         self.handler = handler

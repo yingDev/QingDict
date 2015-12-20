@@ -23,6 +23,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="436" height="290"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="pds-Mf-DPZ">
+                        <rect key="frame" x="202" y="129" width="32" height="32"/>
+                    </progressIndicator>
                     <webView hidden="YES" maintainsBackForwardList="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itd-fc-zaf">
                         <rect key="frame" x="0.0" y="0.0" width="436" height="290"/>
                         <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
@@ -38,12 +41,15 @@
                     <constraint firstItem="Itd-fc-zaf" firstAttribute="top" secondItem="FxO-2J-5ey" secondAttribute="top" id="J6f-KN-3EZ"/>
                     <constraint firstItem="Itd-fc-zaf" firstAttribute="leading" secondItem="FxO-2J-5ey" secondAttribute="leading" id="PjZ-fR-Bsk"/>
                     <constraint firstAttribute="bottom" secondItem="Itd-fc-zaf" secondAttribute="bottom" id="aq2-sV-Fgb"/>
+                    <constraint firstItem="pds-Mf-DPZ" firstAttribute="centerX" secondItem="FxO-2J-5ey" secondAttribute="centerX" id="ctn-if-FPT"/>
+                    <constraint firstItem="pds-Mf-DPZ" firstAttribute="centerY" secondItem="FxO-2J-5ey" secondAttribute="centerY" id="lsF-K1-goh"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="animWindow" destination="Mg7-UC-WaI" id="TWB-a8-mkf"/>
                 <outlet property="animWindowText" destination="CRX-c4-Xtl" id="D4j-yH-Fek"/>
                 <outlet property="delegate" destination="lTh-UW-xRo" id="rPQ-xZ-ypu"/>
+                <outlet property="indicator" destination="pds-Mf-DPZ" id="1AJ-qg-qbd"/>
                 <outlet property="starBtn" destination="Ma8-Tr-vqn" id="sVv-6p-9BB"/>
                 <outlet property="starPopoverCtrl" destination="qqa-MJ-01N" id="uIE-hD-Jn4"/>
                 <outlet property="titlebarAccCtrl" destination="xVz-AZ-g1T" id="vLp-53-I7B"/>
@@ -60,7 +66,7 @@
             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="star_default" imagePosition="only" alignment="center" alternateImage="star_checked" imageScaling="proportionallyUpOrDown" inset="2" id="GYu-4c-IDi">
-                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                 <font key="font" metaFont="system"/>
                 <connections>
                     <action selector="star:" target="2xD-be-uVR" id="E3u-i6-LqA"/>
@@ -88,11 +94,11 @@
             </connections>
         </popover>
         <customView id="MBS-bX-H0j" userLabel="Star View">
-            <rect key="frame" x="0.0" y="0.0" width="180" height="154"/>
+            <rect key="frame" x="0.0" y="0.0" width="210" height="154"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3rd-9t-zOn">
-                    <rect key="frame" x="8" y="125" width="164" height="19"/>
+                    <rect key="frame" x="8" y="125" width="194" height="19"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="Pragmatism" placeholderString="原文" usesSingleLineMode="YES" id="3j8-Zq-dy4">
                         <font key="font" metaFont="systemMedium" size="15"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -113,7 +119,7 @@
                     </connections>
                 </button>
                 <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nmc-xb-iLI">
-                    <rect key="frame" x="8" y="106" width="138" height="17"/>
+                    <rect key="frame" x="8" y="106" width="168" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" alignment="left" title="[wo:d]" placeholderString="音标" usesSingleLineMode="YES" id="xG6-YO-z21">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -121,7 +127,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-eA-fW8">
-                    <rect key="frame" x="98" y="9" width="72" height="17"/>
+                    <rect key="frame" x="128" y="9" width="72" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="72" id="90p-UV-cCC"/>
                     </constraints>
@@ -137,7 +143,7 @@ DQ
                     </connections>
                 </button>
                 <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PiF-A0-ZuO">
-                    <rect key="frame" x="10" y="36" width="160" height="60"/>
+                    <rect key="frame" x="10" y="36" width="190" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="VxY-jh-1Kw"/>
                     </constraints>
@@ -167,7 +173,7 @@ DQ
                 <constraint firstAttribute="bottom" secondItem="lk3-JW-reE" secondAttribute="bottom" constant="10" id="aBQ-7O-4Ce"/>
                 <constraint firstItem="3rd-9t-zOn" firstAttribute="top" secondItem="MBS-bX-H0j" secondAttribute="top" constant="10" id="fg3-ir-os7"/>
             </constraints>
-            <point key="canvasLocation" x="177" y="-327"/>
+            <point key="canvasLocation" x="192" y="-327"/>
         </customView>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Mg7-UC-WaI" userLabel="AnimWindow" customClass="NSPanel">
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES" HUD="YES"/>
@@ -197,7 +203,7 @@ DQ
             <connections>
                 <binding destination="vb9-AO-Ibq" name="title" keyPath="values" id="t6v-Ep-kxr"/>
             </connections>
-            <point key="canvasLocation" x="348.5" y="-396"/>
+            <point key="canvasLocation" x="481.5" y="-439"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="vb9-AO-Ibq"/>
     </objects>

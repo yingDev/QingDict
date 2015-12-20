@@ -10,7 +10,14 @@ import Cocoa
 
 class StatusWindowControler : NSWindowController, NSWindowDelegate
 {
-	@IBOutlet weak var wordbookController: WordbookViewController!
+	@IBOutlet weak var searchField: NSSearchField!
+	@IBOutlet weak var toolbarView: SolidColorView!
+	
+	@IBOutlet weak var wordbookViewWrapper: NSView!
+	@IBOutlet weak var wordbookTableView: SwipableTableView!
+	
+	var wordbookController: WordbookViewController!
+	var prefsController: PrefsViewController? = nil
 	
 	var lookupRequestHandler: ((String)->())? = nil
 	
@@ -31,20 +38,35 @@ class StatusWindowControler : NSWindowController, NSWindowDelegate
 		
 		window!.movable = false
 		
+		wordbookTableView.backgroundColor = NSColor.clearColor()
+		wordbookController = WordbookViewController()
+		wordbookController.view = wordbookTableView;
 		wordbookController.entryDoubleClickHandler = { entry in
 			self.hide()
 			self.lookupRequestHandler?(entry.keyword)
 		}
 		
-		//titleBarAccCtrl.view.wantsLayer = true;
-		//titleBarAccCtrl.view.layer?.backgroundColor = CGColorCreateGenericRGB(0.8, 0.2, 0.2, 0.8);
+		toolbarView.color = NSColor.windowBackgroundColor()
+		CGColorCreateGenericRGB(0.8, 0.2, 0.2, 0.8);
 	}
 	
 	func showWindowAt(pos: CGPoint)
 	{
-		window!.setFrame(NSRect(origin: CGPoint(x: pos.x, y: pos.y - window!.frame.height), size: window!.frame.size), display: true);
+		//防止跑出屏外
+		var safeX = pos.x;
+		if let screenWidth = NSScreen.mainScreen()?.frame.width
+		{
+			if pos.x + window!.frame.width > screenWidth
+			{
+				safeX = screenWidth - window!.frame.width
+			}
+		}
+		
+		window!.setFrame(NSRect(origin: CGPoint(x: safeX, y: pos.y - window!.frame.height), size: window!.frame.size), display: true);
 		showWindow(self);
 		window!.makeKeyAndOrderFront(self);
+		
+		searchField.becomeFirstResponder()
 
 		//window!.orderFrontRegardless()
 		//window!.makeKeyWindow()
@@ -56,6 +78,10 @@ class StatusWindowControler : NSWindowController, NSWindowDelegate
 		onHide?()
 	}
 	
+	//FIXME: searchField 无法每次都活的焦点
+	func windowDidBecomeKey(notification: NSNotification)
+	{
+	}
 	
 	func windowDidResignKey(notification: NSNotification)
 	{
@@ -67,6 +93,54 @@ class StatusWindowControler : NSWindowController, NSWindowDelegate
 		hide()
 		lookupRequestHandler?(sender.stringValue)
 	}
+	
+	@IBAction func togglePrefsView(sender: AnyObject)
+	{
+		let btn = (sender as! NSButton);
+		btn.enabled = false;
+		
+		if prefsController == nil
+		{
+			prefsController = PrefsViewController(nibName: "PrefsView", bundle: NSBundle.mainBundle())
+			prefsController!.view.frame = wordbookViewWrapper.frame
+			self.window?.contentView?.addSubview(prefsController!.view)
+			
+			wordbookViewWrapper.hidden = true
+
+			delay(0.1)
+			{
+				self.prefsController?.animIn()
+			}
+			
+			delay(0.2)
+			{
+				self.toolbarView.color = NSColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1);
+
+				(self.window?.contentView as! ButtomRoundedView).fillColor = NSColor.windowBackgroundColor()
+				self.window?.contentView?.setNeedsDisplayInRect(self.window!.contentView!.bounds)
+				btn.enabled = true;
+			}
+		}else
+		{
+			self.prefsController?.animOut()
+			(self.window?.contentView as! ButtomRoundedView).fillColor = NSColor.whiteColor()
+			self.window?.contentView?.setNeedsDisplayInRect(self.window!.contentView!.bounds)
+
+			delay(0.2)
+			{
+				self.prefsController?.view.removeFromSuperview()
+				self.prefsController = nil
+				
+				self.wordbookViewWrapper.hidden = false
+				self.toolbarView.color = NSColor.windowBackgroundColor()
+				self.window?.contentView?.setNeedsDisplayInRect(self.window!.contentView!.bounds)
+
+				btn.enabled = true;
+			}
+			
+		}
+	}
+	
 	
 }
 

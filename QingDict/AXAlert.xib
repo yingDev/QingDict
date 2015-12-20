@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
@@ -15,19 +15,20 @@
         <window title="QingDict" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES"/>
-            <rect key="contentRect" x="196" y="240" width="449" height="172"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="451" y="247" width="449" height="172"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="449" height="172"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gT5-ym-172">
-                        <rect key="frame" x="242" y="112" width="48" height="48"/>
+                        <rect key="frame" x="242" y="112" width="42" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="48" id="pLi-AJ-LI7"/>
-                            <constraint firstAttribute="height" constant="48" id="sC8-VC-T7m"/>
+                            <constraint firstAttribute="width" constant="42" id="pLi-AJ-LI7"/>
+                            <constraint firstAttribute="height" constant="42" id="sC8-VC-T7m"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ax_icon" id="NRZ-Kt-wZo"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="ax_icon" id="NRZ-Kt-wZo"/>
                     </imageView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9y-yc-V92">
                         <rect key="frame" x="357" y="13" width="78" height="32"/>
@@ -61,19 +62,19 @@ DQ
                         </connections>
                     </button>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Upe-94-Mzw">
-                        <rect key="frame" x="159" y="112" width="48" height="48"/>
+                        <rect key="frame" x="159" y="112" width="42" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="48" id="SCN-Si-li3"/>
-                            <constraint firstAttribute="height" constant="48" id="uJE-Ma-2eL"/>
+                            <constraint firstAttribute="width" constant="42" id="SCN-Si-li3"/>
+                            <constraint firstAttribute="height" constant="42" id="uJE-Ma-2eL"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSFolderSmart" id="MbY-46-KHl"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="MbY-46-KHl"/>
                     </imageView>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tj5-bZ-4D3">
                         <rect key="frame" x="220" y="130" width="9" height="12"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSGoRightTemplate" id="Hzq-6C-s1L"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jzP-Rh-qZD">
-                        <rect key="frame" x="91" y="87" width="268" height="17"/>
+                        <rect key="frame" x="92" y="87" width="267" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="QingDict 需要使用 “辅助功能” 才能正常运行" id="YAO-4V-Iu5">
                             <font key="font" metaFont="titleBar"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -82,7 +83,7 @@ DQ
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Upe-94-Mzw" firstAttribute="centerY" secondItem="tj5-bZ-4D3" secondAttribute="centerY" id="0p3-OB-EBi"/>
+                    <constraint firstItem="Upe-94-Mzw" firstAttribute="centerY" secondItem="tj5-bZ-4D3" secondAttribute="centerY" constant="3" id="0p3-OB-EBi"/>
                     <constraint firstAttribute="trailing" secondItem="R9y-yc-V92" secondAttribute="trailing" constant="20" id="5OL-dr-oDk"/>
                     <constraint firstAttribute="bottom" secondItem="R9y-yc-V92" secondAttribute="bottom" constant="20" id="5V1-m7-2ye"/>
                     <constraint firstItem="gT5-ym-172" firstAttribute="leading" secondItem="tj5-bZ-4D3" secondAttribute="trailing" constant="13" id="Ata-c1-Qcm"/>
@@ -90,9 +91,9 @@ DQ
                     <constraint firstAttribute="bottom" secondItem="4hF-Q3-4UG" secondAttribute="bottom" constant="20" id="Pwe-ny-pjE"/>
                     <constraint firstItem="tj5-bZ-4D3" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="30" id="VZr-Cq-HwQ"/>
                     <constraint firstItem="jzP-Rh-qZD" firstAttribute="bottom" secondItem="tj5-bZ-4D3" secondAttribute="bottom" constant="43" id="exv-HF-QbE"/>
-                    <constraint firstItem="tj5-bZ-4D3" firstAttribute="leading" secondItem="Upe-94-Mzw" secondAttribute="trailing" constant="13" id="hka-FY-mgc"/>
-                    <constraint firstItem="jzP-Rh-qZD" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="k5S-40-kFb"/>
-                    <constraint firstItem="gT5-ym-172" firstAttribute="centerY" secondItem="tj5-bZ-4D3" secondAttribute="centerY" id="wBE-7p-ktr"/>
+                    <constraint firstItem="tj5-bZ-4D3" firstAttribute="leading" secondItem="Upe-94-Mzw" secondAttribute="trailing" constant="19" id="hka-FY-mgc"/>
+                    <constraint firstItem="jzP-Rh-qZD" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" constant="1" id="k5S-40-kFb"/>
+                    <constraint firstItem="gT5-ym-172" firstAttribute="centerY" secondItem="tj5-bZ-4D3" secondAttribute="centerY" constant="3" id="wBE-7p-ktr"/>
                     <constraint firstItem="4hF-Q3-4UG" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="xYu-R5-E8v"/>
                 </constraints>
             </view>
@@ -100,7 +101,7 @@ DQ
         </window>
     </objects>
     <resources>
-        <image name="NSFolderSmart" width="32" height="32"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="ax_icon" width="32" height="32"/>
     </resources>

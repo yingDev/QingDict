@@ -17,12 +17,6 @@
                 <outlet property="statusWindowController" destination="Tlk-p5-Mkh" id="E7S-dQ-A9z"/>
             </connections>
         </customObject>
-        <viewController nibName="WordbookView" id="4On-Ht-IkN" userLabel="WordbookViewController" customClass="WordbookViewController" customModule="QingDict" customModuleProvider="target">
-            <connections>
-                <outlet property="tableView" destination="L5o-0e-6tU" id="fUM-Wm-HHT"/>
-                <outlet property="view" destination="GpT-dD-o8a" id="aIv-o0-DXe"/>
-            </connections>
-        </viewController>
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" deferred="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sQL-jQ-jP3" userLabel="StatusWindow" customClass="StatusWindow" customModule="QingDict" customModuleProvider="target">
             <windowStyleMask key="styleMask" nonactivatingPanel="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -32,7 +26,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="285" height="322"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="UUK-Fp-oWC" customClass="SolidColorView" customModule="QingDict" customModuleProvider="target">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="UUK-Fp-oWC" userLabel="toolbar" customClass="SolidColorView" customModule="QingDict" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="288" width="285" height="34"/>
                         <subviews>
                             <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9j5-b7-rTl">
@@ -54,10 +48,13 @@
                             </box>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-xp-YsH">
                                 <rect key="frame" x="253" y="4" width="29" height="26"/>
-                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="3DC4F05C-BA31-47DC-8594-599213A37EFB" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1S-m7-zHM">
+                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="7C870077-F380-4940-B52C-A119EF5DAD72" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1S-m7-zHM">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="togglePrefsView:" target="Tlk-p5-Mkh" id="c9V-jB-COt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -66,13 +63,8 @@
                             <constraint firstItem="YuU-VC-RNM" firstAttribute="leading" secondItem="UUK-Fp-oWC" secondAttribute="leading" id="WoT-oH-bD6"/>
                             <constraint firstAttribute="trailing" secondItem="YuU-VC-RNM" secondAttribute="trailing" id="jcM-QX-e0q"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                <color key="value" white="0.90436241610738255" alpha="1" colorSpace="calibratedWhite"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </customView>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="GpT-dD-o8a" userLabel="Wordbook Table">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="GpT-dD-o8a" userLabel="content">
                         <rect key="frame" x="0.0" y="10" width="285" height="278"/>
                         <subviews>
                             <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="55" horizontalPageScroll="10" verticalLineScroll="55" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uq-qg-ErU">
@@ -82,7 +74,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="54" viewBased="YES" floatsGroupRows="NO" id="L5o-0e-6tU" customClass="SwipableTableView" customModule="QingDict" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="285" height="278"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="285" height="0.0"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="0.0" height="1"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -150,10 +142,6 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
-                                            <connections>
-                                                <outlet property="dataSource" destination="4On-Ht-IkN" id="hsp-C8-ChX"/>
-                                                <outlet property="delegate" destination="4On-Ht-IkN" id="pb8-T3-Q6y"/>
-                                            </connections>
                                         </tableView>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -188,113 +176,23 @@
             </view>
             <connections>
                 <outlet property="delegate" destination="Tlk-p5-Mkh" id="k4s-bT-F3u"/>
+                <outlet property="initialFirstResponder" destination="9j5-b7-rTl" id="YzR-Ty-WCq"/>
             </connections>
             <point key="canvasLocation" x="414.5" y="-579"/>
         </window>
         <customObject id="Tlk-p5-Mkh" customClass="StatusWindowControler" customModule="QingDict" customModuleProvider="target">
             <connections>
+                <outlet property="searchField" destination="9j5-b7-rTl" id="lHM-qW-G1A"/>
+                <outlet property="toolbarView" destination="UUK-Fp-oWC" id="8tX-Gr-lIa"/>
                 <outlet property="window" destination="sQL-jQ-jP3" id="AT2-bw-p2w"/>
-                <outlet property="wordbookController" destination="4On-Ht-IkN" id="GQn-gf-jQq"/>
+                <outlet property="wordbookTableView" destination="L5o-0e-6tU" id="7Rq-RS-8EW"/>
+                <outlet property="wordbookViewWrapper" destination="GpT-dD-o8a" id="JU9-mI-16b"/>
             </connections>
         </customObject>
         <customObject id="v4H-hi-Mh4" customClass="NSTitlebarAccessoryViewController"/>
-        <customView id="lev-JV-Svg" userLabel="SettingsView" customClass="SolidColorView" customModule="QingDict" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="285" height="289"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emS-bX-ZIA">
-                    <rect key="frame" x="93" y="250" width="132" height="20"/>
-                    <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="lF9-PW-YwV"/>
-                </slider>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjP-bi-MAd">
-                    <rect key="frame" x="93" y="220" width="166" height="18"/>
-                    <buttonCell key="cell" type="check" title="开机自动运行" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="feN-ld-1ru">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6o-aC-mCT">
-                    <rect key="frame" x="12" y="26" width="100" height="100"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSQuickLookTemplate" id="FgT-m5-RrJ"/>
-                </imageView>
-                <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="7f5-DT-3s5">
-                    <rect key="frame" x="0.0" y="140" width="285" height="5"/>
-                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <font key="titleFont" metaFont="system"/>
-                </box>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpu-WD-QOQ">
-                    <rect key="frame" x="229" y="252" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="3s" id="IzS-vr-7dP">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2T-rU-iNS">
-                    <rect key="frame" x="134" y="102" width="120" height="24"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="QingDict" id="Y9Q-7o-48Q">
-                        <font key="font" metaFont="systemLight" size="20"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wns-uv-XQ3">
-                    <rect key="frame" x="18" y="252" width="71" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="查词延迟:" id="ywo-gK-7zH">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQd-lt-0nK">
-                    <rect key="frame" x="136" y="48" width="116" height="19"/>
-                    <buttonCell key="cell" type="recessed" title="YingDev.com" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="left" imageScaling="proportionallyDown" inset="2" id="3lC-Qk-MyV">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="systemBold" size="12"/>
-                    </buttonCell>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7f2-GQ-raw">
-                    <rect key="frame" x="136" y="25" width="116" height="19"/>
-                    <buttonCell key="cell" type="recessed" title="捐助支持" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="left" imageScaling="proportionallyDown" inset="2" id="dHG-97-jCs">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="systemBold" size="12"/>
-                    </buttonCell>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dax-Gs-T1l">
-                    <rect key="frame" x="134" y="77" width="37" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.0.0" id="Bka-Di-m9F">
-                        <font key="font" metaFont="systemLight" size="13"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-sL-NZS">
-                    <rect key="frame" x="72" y="151" width="140" height="32"/>
-                    <buttonCell key="cell" type="push" title="退出QingDict" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8nY-QV-Kie">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jt-Jy-KBh">
-                    <rect key="frame" x="18" y="221" width="71" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="其他:" id="CRj-D2-uqu">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-            </subviews>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="color" keyPath="color">
-                    <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="414.5" y="-929.5"/>
-        </customView>
     </objects>
     <resources>
-        <image name="3DC4F05C-BA31-47DC-8594-599213A37EFB" width="1" height="1">
+        <image name="7C870077-F380-4940-B52C-A119EF5DAD72" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -345,7 +243,5 @@ ALAAswC1ALcAuQC7AMAA1wDZANsJiwmQCZsJpAm3CbsJxgnPCdQJ3AnfCeQJ8wn3Cf4KBgoTChgKGgoc
 CiEKKQosCjEKOQo8Ck4KUQpWAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAClg
 </mutableData>
         </image>
-        <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
-        <image name="NSQuickLookTemplate" width="19" height="12"/>
     </resources>
 </document>

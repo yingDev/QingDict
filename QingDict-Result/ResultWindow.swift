@@ -20,20 +20,41 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 	@IBOutlet var animWindow: NSPanel!
 	@IBOutlet weak var animWindowText: NSTextField!
 	@IBOutlet weak var webView: WebView!
+	@IBOutlet weak var indicator: NSProgressIndicator!
 	
 	var word: String!
 	var trans: String? = nil
 	var pron: String? = nil
 	
-	//TODO: impl
-	var stared: Bool = false;
-	//var wordEntry: WordEntry?;
+	var shouldAutoStar = false
+	
+	private var _qingDictStatusItemFrame: NSRect? = nil
+	
+	deinit
+	{
+		NSDistributedNotificationCenter.defaultCenter().removeObserver(self, name: "QingDict:StatusItemFrame", object: nil);
+	}
+	
+
+	var stared: Bool
+	{
+		didSet
+		{
+			if starBtn != nil
+			{
+				starBtn.state = stared ? NSOnState : NSOffState
+			}
+		}
+	}
 	
 	override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, `defer` flag: Bool)
 	{
-		
+		stared = false
+
 		super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, `defer`: flag)
+		
 		level = Int(CGWindowLevelForKey(.UtilityWindowLevelKey));
+		
 	}
 	
 	override func awakeFromNib()
@@ -52,8 +73,30 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		animWindow.level = Int(CGWindowLevelForKey(CGWindowLevelKey.AssistiveTechHighWindowLevelKey));
 		
 		self.starPopoverCtrl.onConfirmStar = handleConfirmStar
-		
 		self.starPopoverCtrl.onDeleteStar = handleDeleteStar
+		
+		indicator.startAnimation(nil)
+		
+		NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: Selector("HandleDistNoti_GotStatusItemFrame:"), name: "QingDict:StatusItemFrame", object: nil, suspensionBehavior: NSNotificationSuspensionBehavior.DeliverImmediately)
+	}
+	
+	func HandleDistNoti_GotStatusItemFrame(noti: NSNotification)
+	{
+		Swift.print("ResultWindow.HandleDistNoti_GotStatusItemFrame")
+
+		if let dict = noti.userInfo  as? [String: String]
+		{
+			if let rectStr = dict["frame"]
+			{
+				_qingDictStatusItemFrame = NSRectFromString(rectStr)
+				Swift.print("HandleDistNoti_GotStatusItemFrame: \(_qingDictStatusItemFrame)")
+			}
+		}
+	}
+	
+	private func postStarNoti()
+	{
+		NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:AddWordEntry", object: "QingDict-Result", userInfo: ["word": self.word, "trans": self.trans ?? ""], deliverImmediately: true)
 	}
 	
 	private func handleConfirmStar(sender: StarViewController)
@@ -67,33 +110,36 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		animWindow.setFrame(NSRect(origin: CGPoint(x:from.origin.x - 4, y:from.origin.y - 1), size: self.animWindowText.frame.size), display: true)
 		animWindow.orderFront(nil)
 		
-		starBtn.state = NSOnState;
-		
 		stared = true;
 		
 		performSelector(Selector("animateAnimWindow"), withObject: nil, afterDelay: 0.1);
 		
-		NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:AddWordEntry", object: "QingDict-Result", userInfo: ["word": self.word, "trans": self.trans ?? ""], deliverImmediately: true)
+		postStarNoti()
 	}
 	
 	private func handleDeleteStar(sender: StarViewController)
 	{
-		starBtn.state = NSOffState;
 		stared = false;
+		NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:RemoveWordEntry", object: "QingDict-Result", userInfo: ["word": self.word], deliverImmediately: true)
+		
 	}
 	
 	func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
 	{
 		Swift.print("webView didFinishLoadForFrame: \(frame) *  \(sender.mainFrame)")
 		
+		indicator.stopAnimation(nil)
+		indicator.hidden = true;
+		
 		starBtn.hidden = false;
 		
 		//FIXME: youdao.com始终不成立???
+		//HACK: 用户可能将页面跳转到其他地方。始终尝试提起
 		//if frame == webView.mainFrame
-		if trans == nil
-		{
+		//if trans == nil
+		//{
 			injectJsCss(); //由于有时候mainFrame可能很长时间无法加载完。。。so，无奈允许执行N次
-		}
+		//}
 		
 		webView.hidden = false;
 	}
@@ -109,6 +155,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		//js
 		webView.stringByEvaluatingJavaScriptFromString("document.getElementById('ads').remove();" +										                           "document.getElementById('topImgAd').remove();" +
 			"window.scrollTo(115,92)");
+		
 		//自动发音
 		/*webView.stringByEvaluatingJavaScriptFromString("setTimeout(function(){" +
 		"var prons = document.getElementsByClassName('pronounce');" +
@@ -120,6 +167,12 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		if word.characters.count > 0
 		{
 			self.word = word
+			Swift.print("extracted word: \(word)")
+		}else
+		{
+			self.word = nil
+			shouldAutoStar = false
+			return;
 		}
 		
 		//提取释义
@@ -127,8 +180,13 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		if trans.characters.count > 0
 		{
 			self.trans = trans
-			Swift.print(trans)
+			//Swift.print(trans)
 
+		}else
+		{
+			self.trans = nil
+			shouldAutoStar = false
+			return;
 		}
 		
 		//提取音标
@@ -136,6 +194,15 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		if pron.characters.count > 0
 		{
 			self.pron = pron;
+		}else
+		{
+			self.pron = nil
+		}
+		
+		if shouldAutoStar
+		{
+			postStarNoti()
+			shouldAutoStar = false
 		}
 		
 		//css
@@ -153,15 +220,13 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		headElem.appendChild(styleElem);
 	}
  
-	//todo： 实现自定义的按钮，用于正确处理验证
 	@IBAction func star(sender: AnyObject)
 	{
 		let btn =  sender as! NSButton;
-		
+
 		if starPopoverCtrl.shown
 		{
 			starPopoverCtrl.close();
-			btn.state = stared ? NSOnState : NSOffState;
 		}
 		else if self.word != nil
 		{
@@ -172,16 +237,24 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 			
 			starPopoverCtrl.showRelativeToRect(btn.frame, ofView: btn, preferredEdge: NSRectEdge.MinY);
 			
-			btn.state = NSOnState;
+			
+			//查询statusItem的位置
+			NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:QueryStatusItemFrame", object: "QingDict-Result", userInfo: nil, deliverImmediately: true)
 		}
 		
+		btn.state = stared ? NSOnState : NSOffState
+
 	}
 	
 	func animateAnimWindow()
 	{
-		animWindow.setFrame(NSRect(origin: CGPoint(x:990, y:900 - animWindow.frame.height), size: animWindow.frame.size), display: true, animate: true);
+		if _qingDictStatusItemFrame != nil
+		{
+			animWindow.setFrame(_qingDictStatusItemFrame!, display: true, animate: true);
+		}
+
 		animWindow.contentView?.animator().alphaValue = 0
-		animWindow.performSelector(Selector("orderOut:"), withObject: nil, afterDelay: 0.3);
+		animWindow.performSelector(Selector("orderOut:"), withObject: nil, afterDelay: 1);
 	}
 
 	required init?(coder: NSCoder) {
@@ -192,10 +265,6 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 	
 	override var canBecomeMainWindow: Bool { return true }
 	
-	deinit
-	{
-		Swift.print("ResultWindow.deinit")
-	}
 }
 
 
@@ -235,25 +304,8 @@ class StarViewController : NSViewController, NSTextFieldDelegate
 	
 	@IBAction func confirmStar(sender: AnyObject)
 	{
-		/*animWindowText.stringValue = txtWord.stringValue;
-		//txtWord.hidden = true;
-		
-		//animWindow.backgroundColor = NSColor.clearColor()
-		animWindow.ignoresMouseEvents = true;
-		animWindow.level = Int(CGWindowLevelForKey(CGWindowLevelKey.AssistiveTechHighWindowLevelKey));
-		
-		let winFrame = txtWord.window!.frame;
-		let textFrame = animWindowText.frame;
-		
-		let from = txtWord.window!.convertRectToScreen(NSRect(x: winFrame.width/2 - textFrame.width/2, y: -textFrame.height, width: textFrame.width, height: textFrame.height));//txtWord.convertRect(txtWord.bounds, toView: nil));
-		
-		animWindow.setFrame(from, display: false);
-		animWindow.orderFront(nil)*/
-
 		popOver.close();
 		
-		//performSelector(Selector("animateAnimWindow"), withObject: nil, afterDelay: 0.25);
-
 		onConfirmStar?(self);
 	}
 	

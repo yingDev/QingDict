@@ -26,6 +26,15 @@ class AXAlertController : NSWindowController
 		performSelector(Selector("pollingCheck"), withObject: nil, afterDelay: 0.3)
 	}
 	
+	override func showWindow(sender: AnyObject?)
+	{
+		super.showWindow(nil)
+		
+		self.window!.makeKeyAndOrderFront(nil)
+		
+		NSApp.activateIgnoringOtherApps(true)
+	}
+	
 	override func windowDidLoad()
 	{
 		self.window!.level = Int(CGWindowLevelForKey(CGWindowLevelKey.UtilityWindowLevelKey))

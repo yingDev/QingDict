@@ -7,29 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E0C68A11C213DC0006FAB73 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C68A01C213DC0006FAB73 /* PrefsViewController.swift */; };
 		2E224A041C1E879A00B60244 /* WordbookDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A031C1E879A00B60244 /* WordbookDataController.swift */; };
 		2E224A061C1E94F200B60244 /* WordbookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A051C1E94F200B60244 /* WordbookEntry.swift */; };
 		2E224A081C1E999A00B60244 /* UserTextSelectionExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */; };
 		2E6436F01C1BE7E70004DCF4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */; };
+		2E7EB0311C205CB100A67024 /* CommandLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED0AC541C1FE19B00403BEB /* CommandLine.framework */; };
+		2E7EB0321C205CB100A67024 /* CommandLine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED0AC541C1FE19B00403BEB /* CommandLine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E7EB0381C205D8100A67024 /* QingDict-Result.app in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */; };
 		2E88BA1F1C158A1100C15397 /* AXAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88BA1E1C158A1100C15397 /* AXAlertController.swift */; };
 		2EA748FD1C19620200024BA9 /* WordbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA748FC1C19620200024BA9 /* WordbookViewController.swift */; };
 		2EA749011C19668800024BA9 /* WordbookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA749001C19668800024BA9 /* WordbookRowView.swift */; };
 		2EAE8AFB1C191D05002C3AEA /* StatusWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */; };
 		2EB54D8C1C15560C00E1A312 /* AXAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EB54D8B1C15560C00E1A312 /* AXAlert.xib */; };
 		2EC63AB91C1A72050070B168 /* StatusWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC63AB81C1A72050070B168 /* StatusWindowController.swift */; };
+		2ED0AC5B1C1FE96300403BEB /* PrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0AC5A1C1FE96300403BEB /* PrefsView.xib */; };
 		2ED2264B1C0FDE590033AD4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */; };
 		2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED2264C1C0FDE590033AD4C /* Assets.xcassets */; };
 		2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */; };
 		2EEFBAB21C151F5A0098E4A9 /* MouseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */; };
 		2EEFBABA1C1537720098E4A9 /* ResultAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB91C1537720098E4A9 /* ResultAppDelegate.swift */; };
 		2EEFBABC1C1537720098E4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBABB1C1537720098E4A9 /* Assets.xcassets */; };
-		2EEFBAC41C15377E0098E4A9 /* QingDict-Result.app in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */; };
 		2EEFBACF1C1544160098E4A9 /* ResultWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBACD1C1544160098E4A9 /* ResultWindow.swift */; };
 		2EEFBAD01C1544160098E4A9 /* ResultWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBACE1C1544160098E4A9 /* ResultWindow.xib */; };
 		2EEFBAD21C15444D0098E4A9 /* QingDictResultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAD11C15444D0098E4A9 /* QingDictResultApp.swift */; };
+		2EF993DE1C225F10004FA412 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF993DD1C225F10004FA412 /* Util.swift */; };
+		2EF993EF1C228A24004FA412 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF993EE1C228A24004FA412 /* main.m */; };
+		2EF993FD1C228B57004FA412 /* Launch-Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2EF993E81C228A24004FA412 /* Launch-Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2EF993FF1C229065004FA412 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF993FE1C229065004FA412 /* ServiceManagement.framework */; };
+		2EF994011C229635004FA412 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF994001C229635004FA412 /* Consts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E7EB0331C205CB100A67024 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D06884219674D7D00BBFAAC;
+			remoteInfo = CommandLine;
+		};
+		2ED0AC531C1FE19B00403BEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
+			remoteInfo = CommandLine;
+		};
+		2ED0AC551C1FE19B00403BEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
+			remoteInfo = CommandLineTests;
+		};
 		2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
@@ -37,9 +67,41 @@
 			remoteGlobalIDString = 2EEFBAB61C1537720098E4A9;
 			remoteInfo = "QingDict-Result";
 		};
+		2EF993F91C228B32004FA412 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2EF993E71C228A24004FA412;
+			remoteInfo = "Launch-Helper";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2E7EB0351C205CB100A67024 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2E7EB0321C205CB100A67024 /* CommandLine.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF993FC1C228B43004FA412 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				2EF993FD1C228B57004FA412 /* Launch-Helper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2E0C68A01C213DC0006FAB73 /* PrefsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 		2E224A031C1E879A00B60244 /* WordbookDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookDataController.swift; sourceTree = "<group>"; };
 		2E224A051C1E94F200B60244 /* WordbookEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordbookEntry.swift; sourceTree = "<group>"; };
 		2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTextSelectionExtractor.swift; sourceTree = "<group>"; };
@@ -50,6 +112,8 @@
 		2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusWindow.xib; sourceTree = "<group>"; };
 		2EB54D8B1C15560C00E1A312 /* AXAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AXAlert.xib; sourceTree = "<group>"; };
 		2EC63AB81C1A72050070B168 /* StatusWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusWindowController.swift; sourceTree = "<group>"; };
+		2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLine.xcodeproj; path = lib/CommandLine/CommandLine.xcodeproj; sourceTree = "<group>"; };
+		2ED0AC5A1C1FE96300403BEB /* PrefsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefsView.xib; sourceTree = "<group>"; };
 		2ED226471C0FDE590033AD4C /* QingDict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QingDict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ED2264C1C0FDE590033AD4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +127,12 @@
 		2EEFBACD1C1544160098E4A9 /* ResultWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultWindow.swift; sourceTree = "<group>"; };
 		2EEFBACE1C1544160098E4A9 /* ResultWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultWindow.xib; sourceTree = "<group>"; };
 		2EEFBAD11C15444D0098E4A9 /* QingDictResultApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QingDictResultApp.swift; sourceTree = "<group>"; };
+		2EF993DD1C225F10004FA412 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		2EF993E81C228A24004FA412 /* Launch-Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Launch-Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF993EE1C228A24004FA412 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2EF993F51C228A25004FA412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF993FE1C229065004FA412 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		2EF994001C229635004FA412 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,11 +140,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF993FF1C229065004FA412 /* ServiceManagement.framework in Frameworks */,
 				2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2EEFBAB41C1537720098E4A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7EB0311C205CB100A67024 /* CommandLine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF993E51C228A24004FA412 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,12 +163,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2ED0AC4D1C1FE18700403BEB /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		2ED0AC4F1C1FE19B00403BEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ED0AC541C1FE19B00403BEB /* CommandLine.framework */,
+				2ED0AC561C1FE19B00403BEB /* CommandLineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2ED2263E1C0FDE590033AD4C = {
 			isa = PBXGroup;
 			children = (
-				2ED2265A1C0FFB940033AD4C /* Frameworks */,
 				2ED226491C0FDE590033AD4C /* QingDict */,
 				2EEFBAB81C1537720098E4A9 /* QingDict-Result */,
+				2EF993E91C228A24004FA412 /* Launch-Helper */,
+				2ED0AC4D1C1FE18700403BEB /* lib */,
+				2ED2265A1C0FFB940033AD4C /* Frameworks */,
 				2ED226481C0FDE590033AD4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,6 +197,7 @@
 			children = (
 				2ED226471C0FDE590033AD4C /* QingDict.app */,
 				2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */,
+				2EF993E81C228A24004FA412 /* Launch-Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +205,7 @@
 		2ED226491C0FDE590033AD4C /* QingDict */ = {
 			isa = PBXGroup;
 			children = (
+				2EF994001C229635004FA412 /* Consts.swift */,
 				2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */,
 				2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */,
 				2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */,
@@ -115,7 +215,10 @@
 				2EA749001C19668800024BA9 /* WordbookRowView.swift */,
 				2E224A031C1E879A00B60244 /* WordbookDataController.swift */,
 				2EC63AB81C1A72050070B168 /* StatusWindowController.swift */,
+				2E0C68A01C213DC0006FAB73 /* PrefsViewController.swift */,
+				2EF993DD1C225F10004FA412 /* Util.swift */,
 				2EAE8AFA1C191D05002C3AEA /* StatusWindow.xib */,
+				2ED0AC5A1C1FE96300403BEB /* PrefsView.xib */,
 				2EB54D8B1C15560C00E1A312 /* AXAlert.xib */,
 				2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */,
 				2ED226511C0FDE590033AD4C /* Info.plist */,
@@ -127,6 +230,7 @@
 		2ED2265A1C0FFB940033AD4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2EF993FE1C229065004FA412 /* ServiceManagement.framework */,
 				2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -145,6 +249,23 @@
 			path = "QingDict-Result";
 			sourceTree = SOURCE_ROOT;
 		};
+		2EF993E91C228A24004FA412 /* Launch-Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2EF993F51C228A25004FA412 /* Info.plist */,
+				2EF993ED1C228A24004FA412 /* Supporting Files */,
+			);
+			path = "Launch-Helper";
+			sourceTree = "<group>";
+		};
+		2EF993ED1C228A24004FA412 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2EF993EE1C228A24004FA412 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,10 +276,12 @@
 				2ED226431C0FDE590033AD4C /* Sources */,
 				2ED226441C0FDE590033AD4C /* Frameworks */,
 				2ED226451C0FDE590033AD4C /* Resources */,
+				2EF993FC1C228B43004FA412 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2EF993FA1C228B32004FA412 /* PBXTargetDependency */,
 				2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */,
 			);
 			name = QingDict;
@@ -173,14 +296,34 @@
 				2EEFBAB31C1537720098E4A9 /* Sources */,
 				2EEFBAB41C1537720098E4A9 /* Frameworks */,
 				2EEFBAB51C1537720098E4A9 /* Resources */,
+				2E7EB0351C205CB100A67024 /* Embed Frameworks */,
+				2E0C689F1C20FFC0006FAB73 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E7EB0341C205CB100A67024 /* PBXTargetDependency */,
+			);
+			name = "QingDict-Result";
+			productName = "QingDict-Result";
+			productReference = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2EF993E71C228A24004FA412 /* Launch-Helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EF993F61C228A25004FA412 /* Build configuration list for PBXNativeTarget "Launch-Helper" */;
+			buildPhases = (
+				2EF993E41C228A24004FA412 /* Sources */,
+				2EF993E51C228A24004FA412 /* Frameworks */,
+				2EF993E61C228A24004FA412 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "QingDict-Result";
-			productName = "QingDict-Result";
-			productReference = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */;
+			name = "Launch-Helper";
+			productName = "Launch-Helper";
+			productReference = 2EF993E81C228A24004FA412 /* Launch-Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -189,7 +332,7 @@
 		2ED2263F1C0FDE590033AD4C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = YingDev.com;
 				TargetAttributes = {
@@ -197,12 +340,15 @@
 						CreatedOnToolsVersion = 7.1.1;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
 					2EEFBAB61C1537720098E4A9 = {
 						CreatedOnToolsVersion = 7.1.1;
+					};
+					2EF993E71C228A24004FA412 = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
@@ -217,13 +363,37 @@
 			mainGroup = 2ED2263E1C0FDE590033AD4C;
 			productRefGroup = 2ED226481C0FDE590033AD4C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2ED0AC4F1C1FE19B00403BEB /* Products */;
+					ProjectRef = 2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2ED226461C0FDE590033AD4C /* QingDict */,
 				2EEFBAB61C1537720098E4A9 /* QingDict-Result */,
+				2EF993E71C228A24004FA412 /* Launch-Helper */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2ED0AC541C1FE19B00403BEB /* CommandLine.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CommandLine.framework;
+			remoteRef = 2ED0AC531C1FE19B00403BEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2ED0AC561C1FE19B00403BEB /* CommandLineTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommandLineTests.xctest;
+			remoteRef = 2ED0AC551C1FE19B00403BEB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2ED226451C0FDE590033AD4C /* Resources */ = {
@@ -232,7 +402,8 @@
 			files = (
 				2EB54D8C1C15560C00E1A312 /* AXAlert.xib in Resources */,
 				2EAE8AFB1C191D05002C3AEA /* StatusWindow.xib in Resources */,
-				2EEFBAC41C15377E0098E4A9 /* QingDict-Result.app in Resources */,
+				2ED0AC5B1C1FE96300403BEB /* PrefsView.xib in Resources */,
+				2E7EB0381C205D8100A67024 /* QingDict-Result.app in Resources */,
 				2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +417,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2EF993E61C228A24004FA412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E0C689F1C20FFC0006FAB73 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\ntheDir=\"${TARGET_BUILD_DIR}/${TARGETNAME}.app/Contents/Frameworks\"\nsourceDir=\"../../../../Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\n    theDylib=\"$theDir/$lib.dylib\"\n    rm -f $theDylib\n    ln -s $sourceDir/$lib.dylib $theDylib\ndone\n\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2ED226431C0FDE590033AD4C /* Sources */ = {
@@ -256,9 +450,12 @@
 				2E224A041C1E879A00B60244 /* WordbookDataController.swift in Sources */,
 				2EEFBAB21C151F5A0098E4A9 /* MouseMonitor.swift in Sources */,
 				2ED2264B1C0FDE590033AD4C /* AppDelegate.swift in Sources */,
+				2EF994011C229635004FA412 /* Consts.swift in Sources */,
 				2EA749011C19668800024BA9 /* WordbookRowView.swift in Sources */,
 				2E224A061C1E94F200B60244 /* WordbookEntry.swift in Sources */,
 				2E6436F01C1BE7E70004DCF4 /* Model.xcdatamodeld in Sources */,
+				2E0C68A11C213DC0006FAB73 /* PrefsViewController.swift in Sources */,
+				2EF993DE1C225F10004FA412 /* Util.swift in Sources */,
 				2EA748FD1C19620200024BA9 /* WordbookViewController.swift in Sources */,
 				2E88BA1F1C158A1100C15397 /* AXAlertController.swift in Sources */,
 				2E224A081C1E999A00B60244 /* UserTextSelectionExtractor.swift in Sources */,
@@ -276,13 +473,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2EF993E41C228A24004FA412 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF993EF1C228A24004FA412 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E7EB0341C205CB100A67024 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CommandLine;
+			targetProxy = 2E7EB0331C205CB100A67024 /* PBXContainerItemProxy */;
+		};
 		2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2EEFBAB61C1537720098E4A9 /* QingDict-Result */;
 			targetProxy = 2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */;
+		};
+		2EF993FA1C228B32004FA412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2EF993E71C228A24004FA412 /* Launch-Helper */;
+			targetProxy = 2EF993F91C228B32004FA412 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -328,6 +543,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -364,6 +580,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -371,13 +588,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yuandong Yin (M8V62C96E3)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = QingDict/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yingdev.QingDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -385,13 +606,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Yuandong Yin (M8V62C96E3)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = QingDict/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yingdev.QingDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -399,11 +623,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = "QingDict-Result/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -411,10 +639,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = "QingDict-Result/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2EF993F71C228A25004FA412 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Launch-Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.Launch-Helper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2EF993F81C228A25004FA412 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Launch-Helper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.Launch-Helper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -445,6 +701,15 @@
 			buildConfigurations = (
 				2EEFBAC21C1537720098E4A9 /* Debug */,
 				2EEFBAC31C1537720098E4A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EF993F61C228A25004FA412 /* Build configuration list for PBXNativeTarget "Launch-Helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EF993F71C228A25004FA412 /* Debug */,
+				2EF993F81C228A25004FA412 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

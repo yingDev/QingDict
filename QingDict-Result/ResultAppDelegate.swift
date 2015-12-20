@@ -8,131 +8,99 @@
 
 import Cocoa
 import WebKit
+import CommandLine
+
 
 @NSApplicationMain
 class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 {
-
 	@IBOutlet weak var window: ResultWindow!
 	
 	var timeWindowShown: CFAbsoluteTime = 0
 
 	func applicationDidFinishLaunching(aNotification: NSNotification)
 	{
-		if Process.arguments.count < 2
+		let cli = CommandLine()
+		let word = StringOption(shortFlag: "w", longFlag: "word", required: true, helpMessage: "the word to translate")
+		let pos = StringOption(shortFlag: "p", longFlag: "pos", required: false, helpMessage: "window pos: Center / Cursor")
+		let isStared = BoolOption(shortFlag: "s", longFlag: "stared", required: false, helpMessage: "is this word in wordbook?")
+		
+		let autoStar = BoolOption(shortFlag: "a", longFlag: "autostar", required: false, helpMessage: "auto star this word")
+		
+		cli.addOptions(word, pos, isStared, autoStar)
+		
+		do {
+			try cli.parse()
+		}catch
 		{
+			cli.printUsage(error)
 			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
 			return;
 		}
 		
-		let keyword = Process.arguments[1];
+		let keyword = word.value!; //Process.arguments[1];
 		
 		if let encoded = keyword.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
 		{
 			let url = "http://dict.youdao.com/search?q=\(encoded)";
+			
+			
+			self.window.stared = isStared.value
+			self.window.shouldAutoStar = autoStar.value
 
 			self.window!.loadUrl(url);
 			self.window!.title = keyword;
+			
+			performSelector(Selector("showWindowWithPos:"), withObject: pos.value==nil ? "Cursor" : pos.value! , afterDelay: 0.2)
+			//showWindowWithPos(pos.value == nil ? .Cursor : pos.value!)
 
-			performSelector(Selector("followCursor"), withObject: nil, afterDelay: 0);
 		}else
 		{
 			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
 		}
 	}
 	
-	/*func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
+	func showWindowWithPos(pos: String)
 	{
-		print("webView didFinishLoadForFrame: \(frame) *  \(sender.mainFrame)")
+		print("ResultAppDelegate.showWindowWithPos: \(pos)")
 		
-		window.starBtn.hidden = false;
-		
-		//FIXME: youdao.com始终不成立???
-		//if frame == webView.mainFrame
-		if !transExtracted
-		{
-			injectJsCss(); //由于有时候mainFrame可能很长时间无法加载完。。。so，无奈允许执行N次
-		}
-		
-		webView.hidden = false;
-	}
-	
-	func loadUrl(url: String)
-	{
-		webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: url)!));
-	}
-	
-	//todo: customizations
-	func injectJsCss()
-	{
-		//js
-		webView.stringByEvaluatingJavaScriptFromString("document.getElementById('ads').remove();" +										                           "document.getElementById('topImgAd').remove();" +
-													   "window.scrollTo(115,92)");
-		//自动发音
-		/*webView.stringByEvaluatingJavaScriptFromString("setTimeout(function(){" +
-				"var prons = document.getElementsByClassName('pronounce');" +
-				"if(prons.length > 0){ prons[prons.length -1].children[1].click(); }" +
-				"}, 50)");*/
-		
-		//提取释义
-		let trans = webView.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName('trans-container')[0].children[0].innerText.trim()");
-		if trans.characters.count > 0
-		{
-			transExtracted = true;
-			
-			NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:AddWordEntry", object: "QingDict-Result", userInfo: ["word": word, "trans": trans], deliverImmediately: true)
-		}
-		print(trans)
-
-		//css
-		let doc = webView.mainFrameDocument;
-		let styleElem = doc.createElement("style");
-		styleElem.setAttribute("type", value: "text/css")
-		
-		let cssText = doc.createTextNode("body{ background:#fefefe!important; }" +
-									     "#wordbook, .c-subtopbar, #ads, #topImgAd{display:none!important;}" +
-									     "#custheme{background:transparent!important;}"
-										);
-		styleElem.appendChild(cssText)
-		
-		let headElem = doc.getElementsByTagName("head").item(0);
-		headElem.appendChild(styleElem);
-	}*/
-	
-	//NSDistributedNotificationCenter.defaultCenter().postNotificationName("QingDict:AddWordEntry", object: "self", userInfo: ["word": str, "trans": "你好"], deliverImmediately: true)
-
-	
-	func followCursor()
-	{
-		print("followCursor");
 		let winSize = self.window!.frame.size;
-		let cursorPos = NSEvent.mouseLocation();
-		self.window!.setFrame(NSRect(x: cursorPos.x + 8, y: cursorPos.y - 8 - winSize.height,
-			width: winSize.width, height: winSize.height),
-			display: false);
+		var winPos = CGPoint()
+
+		switch pos
+		{
 		
+		case "Center":
+			let screenFrame = NSScreen.mainScreen()!.frame;
+			let screenCenter = NSPoint(x: screenFrame.width/2 + screenFrame.origin.x, y: screenFrame.height/2 + screenFrame.origin.y)
+			winPos = CGPoint(x: screenCenter.x - winSize.width/2, y: screenCenter.y - winSize.height/4)
+			break;
+			
+		default:
+		//case "Cursor":
+			let cursorPos = NSEvent.mouseLocation();
+			winPos = CGPoint(x: cursorPos.x + 8, y: cursorPos.y - 8 - winSize.height)
+			break;
+		}
+		
+		self.window!.setFrameOrigin(winPos)
 		self.window!.makeKeyAndOrderFront(nil);
 		
 		timeWindowShown = CFAbsoluteTimeGetCurrent()
-		//NSApp.activateIgnoringOtherApps(true);
 	}
 	
 	func windowDidResignKey(notification: NSNotification)
 	{
-		print("windowDidResignKey");
-		
 		if CFAbsoluteTimeGetCurrent() - timeWindowShown > 0.5
 		{
+			print("ResultAppDelegate.windowDidResignKey: terminate")
+
 			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
+			return;
 		}
-		
-		print("not time")
+
+		print("ResultAppDelegate.windowDidResignKey: not time")
 		self.window!.makeKeyAndOrderFront(nil);
-	}
-	
-	deinit
-	{
-		print("AppDelegate.deinit");
 	}
 
 }

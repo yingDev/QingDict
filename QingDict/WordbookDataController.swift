@@ -12,10 +12,12 @@ import CoreData
 class WordbookDataController: NSObject
 {
 	private let ENTITY_NAME = "WordbookEntry"
-	private var ctx: NSManagedObjectContext
+	private var ctx: NSManagedObjectContext!
 	
 	override init()
 	{
+		super.init()
+		
 		// This resource is the same name as your xcdatamodeld contained in your project.
 		guard let modelURL = NSBundle.mainBundle().URLForResource("Model", withExtension:"momd") else {
 			fatalError("Error loading model from bundle")
@@ -28,11 +30,22 @@ class WordbookDataController: NSObject
 		self.ctx = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
 		self.ctx.persistentStoreCoordinator = psc
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-			let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-			let docURL = urls[urls.endIndex-1]
-			/* The directory the application uses to store the Core Data store file.
-			This code uses a file named "DataModel.sqlite" in the application's documents directory.
-			*/
+			let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
+			let docURL = urls[urls.endIndex-1].URLByAppendingPathComponent(NSBundle.mainBundle().bundleIdentifier!)
+			
+			if !NSFileManager.defaultManager().fileExistsAtPath(docURL.path!)
+			{
+				do
+				{
+					try NSFileManager.defaultManager().createDirectoryAtPath(docURL.path!, withIntermediateDirectories: true, attributes: nil)
+
+				}catch
+				{
+					fatalError("Error create app support dir: \(error)")
+				}
+			}
+			
+			
 			let storeURL = docURL.URLByAppendingPathComponent("Model.sqlite")
 			do {
 				try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
@@ -111,8 +124,9 @@ class WordbookDataController: NSObject
 	func fetchAll() -> [WordbookEntry]
 	{
 		let fetch = NSFetchRequest(entityName: ENTITY_NAME)
-		
+
 		do{
+
 			let res = try ctx.executeFetchRequest(fetch) as! [WordbookEntryMO]
 			
 			return res.reverse().map({ mo -> WordbookEntry in

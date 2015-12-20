@@ -8,25 +8,33 @@
 
 import Cocoa
 
-class WordbookViewController : NSViewController, NSTableViewDataSource, NSTableViewDelegate
+class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDelegate
 {
 	private let dataController = WordbookDataController()
 	private var entries: [WordbookEntry]!
 	
-	@IBOutlet weak var tableView: NSTableView!
+	var view: NSTableView! = nil
+	{
+		didSet
+		{
+			view.setDataSource(self)
+			view.setDelegate(self)
+			//HACK: 为什么？ 如果在当前loop直接reload，结果为空数组。
+			performSelector(Selector("reload"), withObject: nil, afterDelay: 0)
+			
+		}
+	}
 	
 	var entryDoubleClickHandler: ((WordbookEntry)->())? = nil
 	
 	//kvo compatible
 	dynamic private(set) var entryCount: Int = 0
 	
-	override func viewDidLoad()
+	func containsWord(word: String) -> Bool
 	{
-		super.viewDidLoad()
-
-		tableView.backgroundColor = NSColor.clearColor()
-
-		reload()
+		return entries == nil ? false : entries.contains({ e -> Bool in
+			return word == e.keyword
+		})
 	}
 	
 	func addEntry(entry: WordbookEntry)
@@ -35,12 +43,18 @@ class WordbookViewController : NSViewController, NSTableViewDataSource, NSTableV
 		reload()
 	}
 	
-	private func reload()
+	func removeEntry(word: String)
+	{
+		dataController.remove(word)
+		reload()
+	}
+	
+	func reload()
 	{
 		entries = dataController.fetchAll()
 		entryCount = entries.count
 		
-		tableView.reloadData()
+		view.reloadData()
 	}
 	
 	func numberOfRowsInTableView(tableView: NSTableView) -> Int
@@ -62,6 +76,7 @@ class WordbookViewController : NSViewController, NSTableViewDataSource, NSTableV
 			let indexes = NSIndexSet(index: r);
 			tableView.removeRowsAtIndexes(indexes, withAnimation: [.EffectFade, .SlideUp])
 			
+			//not removeEntry here. for effeciency
 			self.dataController.remove(self.entries[r].keyword)
 			self.entries.removeAtIndex(r)
 			self.entryCount = self.entries.count
