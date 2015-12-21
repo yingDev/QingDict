@@ -29,31 +29,31 @@ class WordbookDataController: NSObject
 		let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
 		self.ctx = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
 		self.ctx.persistentStoreCoordinator = psc
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-			let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
-			let docURL = urls[urls.endIndex-1].URLByAppendingPathComponent(NSBundle.mainBundle().bundleIdentifier!)
-			
-			if !NSFileManager.defaultManager().fileExistsAtPath(docURL.path!)
+		//dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+		let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
+		let docURL = urls[urls.endIndex-1].URLByAppendingPathComponent(NSBundle.mainBundle().bundleIdentifier!)
+		
+		if !NSFileManager.defaultManager().fileExistsAtPath(docURL.path!)
+		{
+			do
 			{
-				do
-				{
-					try NSFileManager.defaultManager().createDirectoryAtPath(docURL.path!, withIntermediateDirectories: true, attributes: nil)
+				try NSFileManager.defaultManager().createDirectoryAtPath(docURL.path!, withIntermediateDirectories: true, attributes: nil)
 
-				}catch
-				{
-					fatalError("Error create app support dir: \(error)")
-				}
-			}
-			
-			
-			let storeURL = docURL.URLByAppendingPathComponent("Model.sqlite")
-			do {
-				try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
-			} catch
+			}catch
 			{
-				fatalError("Error migrating store: \(error)")
+				fatalError("Error create app support dir: \(error)")
 			}
 		}
+		
+		
+		let storeURL = docURL.URLByAppendingPathComponent("Model.sqlite")
+		do {
+			try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+		} catch
+		{
+			fatalError("Error migrating store: \(error)")
+		}
+		//}
 	}
 	
 	private func _get(word: String) -> WordbookEntryMO?
