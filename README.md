@@ -3,7 +3,7 @@
 
 ![QingDict Icon](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/qingdict.png) 
 
-开发QingDict是基于一下一些想法：
+开发QingDict是基于以下一些想法：
   - 词典是为了帮助用户记住单词，而不是让用户反复查询同一个单词
   - 工具程序不应该分散用户的注意力
   - 以“实用”为目标，不拘泥于形式
