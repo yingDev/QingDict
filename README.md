@@ -35,6 +35,8 @@ done
   ```
   - 取词：虽然有Accessibility API，但是OSX中许多程序是不支持此API取词的。本项目中采取了3中手段结合取词：AX、Cmd+C、模拟DragDrop，基本能应对大多数情形。这部分实现在`UserTextSelectionExtractor.swfit`中。
   
+# License
+`GPL-V3`
 
 # 截图
 
