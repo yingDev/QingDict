@@ -49,6 +49,15 @@ class UserTextSelectionExtractor : NSObject, NSWindowDelegate, NSDraggingDestina
 	
 	private func handleMouseEvent(e: CGEvent, type: CGEventType, p: CGPoint) -> CGEvent?
 	{
+		
+		if type == CGEventType.TapDisabledByTimeout || type == CGEventType.TapDisabledByUserInput
+		{
+			print("UserTextSelectionExtractor.handleMouseEvent: tap Disabed! Restarting")
+			_mouseMonitor?.set_enabled(true);
+			return e
+		}
+		
+		
 		let leftPressed = NSEvent.pressedMouseButtons() & 1 == 1
 		if !leftPressed || type != CGEventType.RightMouseDown
 		{

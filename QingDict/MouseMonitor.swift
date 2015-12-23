@@ -10,11 +10,13 @@ private func callback(proxy: CGEventTapProxy, type: CGEventType,event: CGEvent, 
 {
 	//TODO: handle this
 	//失效
-	if type == CGEventType.TapDisabledByTimeout || type == CGEventType.TapDisabledByUserInput
+	/*if type == CGEventType.TapDisabledByTimeout || type == CGEventType.TapDisabledByUserInput
 	{
 		print("MouseMonitor: disabled by \(type)")
+		
+		
 		return Unmanaged<CGEvent>.passUnretained(event)
-	}
+	}*/
 	
     let selv = Unmanaged<MouseMonitor>.fromOpaque(COpaquePointer(ptr)).takeUnretainedValue()
     if(selv.handler != nil)
