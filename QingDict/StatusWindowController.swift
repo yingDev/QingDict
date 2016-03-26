@@ -41,13 +41,12 @@ class StatusWindowControler : NSWindowController, NSWindowDelegate
 		wordbookTableView.backgroundColor = NSColor.clearColor()
 		wordbookController = WordbookViewController()
 		wordbookController.view = wordbookTableView;
-		wordbookController.entryDoubleClickHandler = { entry in
+		wordbookController.entryDoubleClickHandler = {
 			self.hide()
-			self.lookupRequestHandler?(entry.keyword)
+			self.lookupRequestHandler?($0.keyword)
 		}
 		
 		toolbarView.color = NSColor.windowBackgroundColor()
-		CGColorCreateGenericRGB(0.8, 0.2, 0.2, 0.8);
 	}
 	
 	func showWindowAt(pos: CGPoint)

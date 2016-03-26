@@ -51,7 +51,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 	{
 		stared = false
 
-		super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, `defer`: flag)
+		super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer:flag)
 		
 		level = Int(CGWindowLevelForKey(.UtilityWindowLevelKey));
 		
@@ -77,7 +77,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		
 		indicator.startAnimation(nil)
 		
-		NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: Selector("HandleDistNoti_GotStatusItemFrame:"), name: "QingDict:StatusItemFrame", object: nil, suspensionBehavior: NSNotificationSuspensionBehavior.DeliverImmediately)
+		NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ResultWindow.HandleDistNoti_GotStatusItemFrame(_:)), name: "QingDict:StatusItemFrame", object: nil, suspensionBehavior: NSNotificationSuspensionBehavior.DeliverImmediately)
 	}
 	
 	func HandleDistNoti_GotStatusItemFrame(noti: NSNotification)
@@ -112,7 +112,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		
 		stared = true;
 		
-		performSelector(Selector("animateAnimWindow"), withObject: nil, afterDelay: 0.1);
+		performSelector(#selector(ResultWindow.animateAnimWindow), withObject: nil, afterDelay: 0.1);
 		
 		postStarNoti()
 	}
@@ -167,7 +167,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		if word.characters.count > 0
 		{
 			self.word = word
-			Swift.print("extracted word: \(word)")
+			Swift.print("ResultWindow.injectJsCss: extracted word: \(word)")
 		}else
 		{
 			self.word = nil
@@ -254,7 +254,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		}
 
 		animWindow.contentView?.animator().alphaValue = 0
-		animWindow.performSelector(Selector("orderOut:"), withObject: nil, afterDelay: 1);
+		animWindow.performSelector(#selector(NSWindow.orderOut(_:)), withObject: nil, afterDelay: 1);
 	}
 
 	required init?(coder: NSCoder) {
@@ -319,7 +319,7 @@ class StarViewController : NSViewController, NSTextFieldDelegate
 	{
 		var result = false
 		
-		if commandSelector == Selector("insertNewline:")
+		if commandSelector == #selector(NSResponder.insertNewline(_:))
 		{
 			// new line action:
 			// always insert a line-break character and don’t cause the receiver to end editing

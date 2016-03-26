@@ -122,7 +122,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
 				//如果是添加，则稍作延迟，让用户感知到这个过程
 				if newValue > oldValue
 				{
-					statusItem.performSelector(Selector("setTitle:"), withObject: val, afterDelay: 0.5)
+					delay(0.5, closure: { 
+						self.statusItem.title = "\(val)"
+					})
+					//statusItem.performSelector(#selector(NSStatusItem.setTitle(_:)), withObject: val, afterDelay: 0.5)
 					return;
 				}
 			}
@@ -271,7 +274,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
 	
 	private func createStatusItem()
 	{
-		statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(45);
+		statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(40);
 		statusItem.highlightMode = true;
 		statusItem.image = NSImage(named: "status")
 		statusItem.image?.template = true

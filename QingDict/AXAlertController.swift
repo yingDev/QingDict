@@ -23,7 +23,7 @@ class AXAlertController : NSWindowController
 			return;
 		}
 		
-		performSelector(Selector("pollingCheck"), withObject: nil, afterDelay: 0.3)
+		performSelector(#selector(AXAlertController.pollingCheck), withObject: nil, afterDelay: 0.3)
 	}
 	
 	override func showWindow(sender: AnyObject?)
@@ -43,7 +43,7 @@ class AXAlertController : NSWindowController
 	
 	@IBAction func quit(sender: AnyObject)
 	{
-		NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
+		NSApp.performSelector(#selector(NSApplication.terminate(_:)), withObject: nil, afterDelay: 0)
 	}
 	
 	@IBAction func allow(sender: AnyObject)

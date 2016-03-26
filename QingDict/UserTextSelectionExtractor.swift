@@ -31,7 +31,7 @@ class UserTextSelectionExtractor : NSObject, NSWindowDelegate, NSDraggingDestina
 		_mouseMonitor?.handler = handleMouseEvent
 		_mouseMonitor?.install();
 		
-		_dragDropWin = NSPanel(contentRect: NSRect(x: 0, y: 0, width: 24,height: 24), styleMask: NSHUDWindowMask | NSNonactivatingPanelMask, backing: NSBackingStoreType.Buffered, `defer`: false);
+		_dragDropWin = NSPanel(contentRect: NSRect(x: 0, y: 0, width: 24,height: 24), styleMask: NSHUDWindowMask | NSNonactivatingPanelMask, backing: NSBackingStoreType.Buffered, `defer`:false);
 		_dragDropWin?.hidesOnDeactivate = false;
 		_dragDropWin?.delegate = self;
 		_dragDropWin?.oneShot = false;

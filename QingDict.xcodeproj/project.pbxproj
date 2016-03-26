@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2E0C68A11C213DC0006FAB73 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C68A01C213DC0006FAB73 /* PrefsViewController.swift */; };
+		2E0DE31C1CA6CFD60016F5A8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */; };
+		2E105F921C2709B6000702C2 /* QingDict-Result.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2E224A041C1E879A00B60244 /* WordbookDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A031C1E879A00B60244 /* WordbookDataController.swift */; };
 		2E224A061C1E94F200B60244 /* WordbookEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A051C1E94F200B60244 /* WordbookEntry.swift */; };
 		2E224A081C1E999A00B60244 /* UserTextSelectionExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E224A071C1E999A00B60244 /* UserTextSelectionExtractor.swift */; };
 		2E6436F01C1BE7E70004DCF4 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E6436EE1C1BE7E70004DCF4 /* Model.xcdatamodeld */; };
 		2E7EB0311C205CB100A67024 /* CommandLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED0AC541C1FE19B00403BEB /* CommandLine.framework */; };
 		2E7EB0321C205CB100A67024 /* CommandLine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED0AC541C1FE19B00403BEB /* CommandLine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2E7EB0381C205D8100A67024 /* QingDict-Result.app in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB71C1537720098E4A9 /* QingDict-Result.app */; };
 		2E88BA1F1C158A1100C15397 /* AXAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88BA1E1C158A1100C15397 /* AXAlertController.swift */; };
 		2EA748FD1C19620200024BA9 /* WordbookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA748FC1C19620200024BA9 /* WordbookViewController.swift */; };
 		2EA749011C19668800024BA9 /* WordbookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA749001C19668800024BA9 /* WordbookRowView.swift */; };
@@ -24,7 +25,6 @@
 		2ED0AC5B1C1FE96300403BEB /* PrefsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ED0AC5A1C1FE96300403BEB /* PrefsView.xib */; };
 		2ED2264B1C0FDE590033AD4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2264A1C0FDE590033AD4C /* AppDelegate.swift */; };
 		2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ED2264C1C0FDE590033AD4C /* Assets.xcassets */; };
-		2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */; };
 		2EEFBAB21C151F5A0098E4A9 /* MouseMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB11C151F5A0098E4A9 /* MouseMonitor.swift */; };
 		2EEFBABA1C1537720098E4A9 /* ResultAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEFBAB91C1537720098E4A9 /* ResultAppDelegate.swift */; };
 		2EEFBABC1C1537720098E4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEFBABB1C1537720098E4A9 /* Assets.xcassets */; };
@@ -60,23 +60,19 @@
 			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
 			remoteInfo = CommandLineTests;
 		};
-		2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EEFBAB61C1537720098E4A9;
-			remoteInfo = "QingDict-Result";
-		};
-		2EF993F91C228B32004FA412 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EF993E71C228A24004FA412;
-			remoteInfo = "Launch-Helper";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2E105F901C27099B000702C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				2E105F921C2709B6000702C2 /* QingDict-Result.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E7EB0351C205CB100A67024 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF993FF1C229065004FA412 /* ServiceManagement.framework in Frameworks */,
-				2ED2265C1C0FFBAC0033AD4C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E0DE31C1CA6CFD60016F5A8 /* WebKit.framework in Frameworks */,
 				2E7EB0311C205CB100A67024 /* CommandLine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,12 +273,11 @@
 				2ED226441C0FDE590033AD4C /* Frameworks */,
 				2ED226451C0FDE590033AD4C /* Resources */,
 				2EF993FC1C228B43004FA412 /* CopyFiles */,
+				2E105F901C27099B000702C2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2EF993FA1C228B32004FA412 /* PBXTargetDependency */,
-				2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */,
 			);
 			name = QingDict;
 			productName = QingDict;
@@ -338,6 +333,7 @@
 				TargetAttributes = {
 					2ED226461C0FDE590033AD4C = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 752P477K38;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -346,9 +342,11 @@
 					};
 					2EEFBAB61C1537720098E4A9 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 752P477K38;
 					};
 					2EF993E71C228A24004FA412 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 752P477K38;
 					};
 				};
 			};
@@ -403,7 +401,6 @@
 				2EB54D8C1C15560C00E1A312 /* AXAlert.xib in Resources */,
 				2EAE8AFB1C191D05002C3AEA /* StatusWindow.xib in Resources */,
 				2ED0AC5B1C1FE96300403BEB /* PrefsView.xib in Resources */,
-				2E7EB0381C205D8100A67024 /* QingDict-Result.app in Resources */,
 				2ED2264D1C0FDE590033AD4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,16 +485,6 @@
 			isa = PBXTargetDependency;
 			name = CommandLine;
 			targetProxy = 2E7EB0331C205CB100A67024 /* PBXContainerItemProxy */;
-		};
-		2EEFBAC61C15379E0098E4A9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EEFBAB61C1537720098E4A9 /* QingDict-Result */;
-			targetProxy = 2EEFBAC51C15379E0098E4A9 /* PBXContainerItemProxy */;
-		};
-		2EF993FA1C228B32004FA412 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EF993E71C228A24004FA412 /* Launch-Helper */;
-			targetProxy = 2EF993F91C228B32004FA412 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -589,9 +576,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = QingDict/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -607,9 +594,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = QingDict/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -623,7 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
@@ -639,7 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
@@ -655,6 +642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Launch-Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -667,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Launch-Helper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

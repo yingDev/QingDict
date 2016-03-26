@@ -19,9 +19,8 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 		{
 			view.setDataSource(self)
 			view.setDelegate(self)
-			//HACK: 为什么？ 如果在当前loop直接reload，结果为空数组。
-			performSelector(Selector("reload"), withObject: nil, afterDelay: 0)
-			
+
+			reload()
 		}
 	}
 	
@@ -71,6 +70,9 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 		rowView.txtTittle.stringValue = model.keyword;
 		rowView.txtTrans.stringValue = model.trans == nil ? "" : model.trans! //.stringByReplacingOccurrencesOfString("  ", withString: " ").stringByReplacingOccurrencesOfString("\n", withString: " ")
 		
+		//TODO: temp
+		rowView.txtTrans.hidden = true;
+		
 		rowView.onSwiped = {sender in
 			let r = tableView.rowForView(sender)
 			let indexes = NSIndexSet(index: r);
@@ -87,6 +89,9 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 			{
 				let indexes = NSIndexSet(index: tableView.rowForView(sender));
 				tableView.selectRowIndexes(indexes, byExtendingSelection: false);
+				
+				rowView.txtTrans.hidden = !rowView.txtTrans.hidden;
+
 			}else if clickCount == 2 //双击
 			{
 				let r = tableView.rowForView(sender)

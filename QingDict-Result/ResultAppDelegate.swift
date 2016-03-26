@@ -34,7 +34,7 @@ class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 		}catch
 		{
 			cli.printUsage(error)
-			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
+			NSApp.performSelector(#selector(NSApplication.terminate(_:)), withObject: nil, afterDelay: 0)
 			return;
 		}
 		
@@ -42,8 +42,8 @@ class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 		
 		if let encoded = keyword.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
 		{
-			let url = "http://dict.youdao.com/search?q=\(encoded)";
-			
+			let url = "http://dict.youdao.com/w/\(encoded)/";//http://dict.youdao.com/search?q=\(encoded)";
+			print(url);
 			
 			self.window.stared = isStared.value
 			self.window.shouldAutoStar = autoStar.value
@@ -51,12 +51,12 @@ class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 			self.window!.loadUrl(url);
 			self.window!.title = keyword;
 			
-			performSelector(Selector("showWindowWithPos:"), withObject: pos.value==nil ? "Cursor" : pos.value! , afterDelay: 0.2)
+			performSelector(#selector(ResultAppDelegate.showWindowWithPos(_:)), withObject: pos.value==nil ? "Cursor" : pos.value! , afterDelay: 0)
 			//showWindowWithPos(pos.value == nil ? .Cursor : pos.value!)
 
 		}else
 		{
-			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
+			NSApp.performSelector(#selector(NSApplication.terminate(_:)), withObject: nil, afterDelay: 0)
 		}
 	}
 	
@@ -95,7 +95,7 @@ class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 		{
 			print("ResultAppDelegate.windowDidResignKey: terminate")
 
-			NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0)
+			NSApp.performSelector(#selector(NSApplication.terminate(_:)), withObject: nil, afterDelay: 0)
 			return;
 		}
 

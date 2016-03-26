@@ -19,7 +19,6 @@ class WordbookRowView : NSTableRowView
 	
 	var warnBackgroundColor = NSColor(red: 255/255.0, green: 63/255.0, blue: 68/255.0, alpha: 1);
 	var normBackgroundColor = NSColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1);
-	
 	var selectionColor = NSColor(red: 0.6, green: 0.8, blue: 1, alpha: 0.2)
 	
 	//quick-dirty ... for now

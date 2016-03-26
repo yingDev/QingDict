@@ -67,7 +67,7 @@ class PrefsViewController : NSViewController
 	
 	@IBAction func quit(sender: AnyObject)
 	{
-		NSApp.performSelector(Selector("terminate:"), withObject: nil, afterDelay: 0.08)
+		NSApp.performSelector(#selector(NSApplication.terminate(_:)), withObject: nil, afterDelay: 0.08)
 	}
 	
 	@IBAction func switchAutostart(sender: AnyObject)
