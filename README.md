@@ -24,12 +24,11 @@
 # 截图
 
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/1.gif) 
-
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/2.gif) 
 
+![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/6.gif) 
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/4.gif) 
 
-![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/6.gif) 
 
 # 有趣的关注点
 
