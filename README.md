@@ -15,12 +15,6 @@
   git submodule init && git submodule update
 ```
 
-# 结构
-包含三个Target: 
-  - `QingDict`：主程序，处理鼠标取词事件、显示状态栏图标、生词表、偏好设置
-  - `QingDict-Result`： 显示执行查词、显示查词结果、与主程序通信；出于减少内存占用的目的，这是一个可独立运行的app，每次执行失去焦点会自动退出
-  - `Launch-Helper`(objc)： ServiceManagement实现启动项所需
-
 # 截图
 
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/1.gif) 
@@ -28,6 +22,13 @@
 
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/6.gif) 
 ![QingDict Demo](https://raw.githubusercontent.com/yingDev/QingDict/master/.readmeImages/4.gif) 
+
+
+# 结构
+包含三个Target: 
+  - `QingDict`：主程序，处理鼠标取词事件、显示状态栏图标、生词表、偏好设置
+  - `QingDict-Result`： 显示执行查词、显示查词结果、与主程序通信；出于减少内存占用的目的，这是一个可独立运行的app，每次执行失去焦点会自动退出
+  - `Launch-Helper`(objc)： ServiceManagement实现启动项所需
 
 
 # 有趣的关注点
