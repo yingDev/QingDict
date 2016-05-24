@@ -476,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\nsay Replacing dylibs\ntheDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app/Contents/Frameworks\"\nsourceDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\ntheDylib=\"$theDir/$lib.dylib\"\nrm -f $theDylib\nln -s $sourceDir/$lib.dylib $theDylib\ndone";
+			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\nsay Replacing dylibs\ntheDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app/Contents/Frameworks\"\nsourceDir=\"../../../../Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\ntheDylib=\"$theDir/$lib.dylib\"\nrm -f $theDylib\nln -s $sourceDir/$lib.dylib $theDylib\ndone";
 		};
 		2E5296571CF44A3F005DEB55 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
