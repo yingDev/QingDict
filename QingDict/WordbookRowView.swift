@@ -16,14 +16,14 @@ class WordbookRowView : NSTableRowView
 	@IBOutlet weak var txtTrans: NSTextField!
 	
 	@IBOutlet weak var contentView: SolidColorView!
-	
+		
 	var warnBackgroundColor = NSColor(red: 255/255.0, green: 63/255.0, blue: 68/255.0, alpha: 1);
 	var normBackgroundColor = NSColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1);
-	var selectionColor = NSColor(red: 0.6, green: 0.8, blue: 1, alpha: 0.2)
+	var selectionColor = NSColor(red: 0.2, green: 0.5, blue: 1, alpha: 1)
 	
 	//quick-dirty ... for now
-	var onSwiped: ((NSTableRowView)->())? = nil
-	var onClicked: ((NSTableRowView, Int)->())? = nil
+	var onSwiped: ((WordbookRowView)->())? = nil
+	var onClicked: ((WordbookRowView, Int)->())? = nil
 	
 	private var _startDragPoint: CGPoint = CGPoint()
 	private var _lastDragPoint: CGPoint = CGPoint()

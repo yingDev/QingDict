@@ -78,6 +78,8 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		indicator.startAnimation(nil)
 		
 		NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ResultWindow.HandleDistNoti_GotStatusItemFrame(_:)), name: "QingDict:StatusItemFrame", object: nil, suspensionBehavior: NSNotificationSuspensionBehavior.DeliverImmediately)
+		
+		self.webView.customUserAgent = "Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.16 (KHTML, like Gecko) Version/8.0 Mobile/13A171a Safari/600.1.4";
 	}
 	
 	func HandleDistNoti_GotStatusItemFrame(noti: NSNotification)
@@ -153,8 +155,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 	func injectJsCss()
 	{
 		//js
-		webView.stringByEvaluatingJavaScriptFromString("document.getElementById('ads').remove();" +										                           "document.getElementById('topImgAd').remove();" +
-			"window.scrollTo(115,92)");
+		//webView.stringByEvaluatingJavaScriptFromString("window.scrollTo(0,120)");
 		
 		//自动发音
 		/*webView.stringByEvaluatingJavaScriptFromString("setTimeout(function(){" +
@@ -163,7 +164,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		"}, 50)");*/
 		
 		//提取查询的单词
-		let word = webView.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName('keyword')[0].innerText.trim()");
+		let word = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('#ec h2 span').innerText.trim()");
 		if word.characters.count > 0
 		{
 			self.word = word
@@ -176,7 +177,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		}
 		
 		//提取释义
-		let trans = webView.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName('trans-container')[0].children[0].innerText.trim()");
+		let trans = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('#ec ul').innerText.trim()");
 		if trans.characters.count > 0
 		{
 			self.trans = trans
@@ -190,7 +191,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		}
 		
 		//提取音标
-		let pron = webView.stringByEvaluatingJavaScriptFromString("/\\[.*\\]/g.exec(document.getElementsByClassName('pronounce')[1].innerText)[0]");
+		let pron = webView.stringByEvaluatingJavaScriptFromString("document.querySelector('#ec .phonetic').innerText");
 		if pron.characters.count > 0
 		{
 			self.pron = pron;
@@ -210,10 +211,7 @@ class ResultWindow : NSPanel, WebFrameLoadDelegate
 		let styleElem = doc.createElement("style");
 		styleElem.setAttribute("type", value: "text/css")
 		
-		let cssText = doc.createTextNode("body{ background:#fefefe!important; }" +
-			"#wordbook, .c-subtopbar, #ads, #topImgAd{display:none!important;}" +
-			"#custheme{background:transparent!important;}"
-		);
+		let cssText = doc.createTextNode("body{ background:#fff!important; font-family: 'PingFang SC'!important;} #ec>h2>span { font-family:serif; font-weight:100; font-size:24px; padding:0.5em 0 } #ec>h2>div{ font-size:12px !important; color:gray; } #bd{background:white;} #dictNav, .amend{ display:none; }");
 		styleElem.appendChild(cssText)
 		
 		let headElem = doc.getElementsByTagName("head").item(0);

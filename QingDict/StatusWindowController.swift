@@ -75,6 +75,7 @@ class StatusWindowControler : NSWindowController, NSWindowDelegate
 	{
 		window!.orderOut(self)
 		onHide?()
+		wordbookController.clearSelection()
 	}
 	
 	//FIXME: searchField 无法每次都活的焦点

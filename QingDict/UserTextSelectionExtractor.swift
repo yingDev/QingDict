@@ -134,6 +134,7 @@ class UserTextSelectionExtractor : NSObject, NSWindowDelegate, NSDraggingDestina
 		
 		CGEventPost(CGEventTapLocation.CGSessionEventTap, key_c_down)
 		CGEventPost(CGEventTapLocation.CGSessionEventTap, key_c_up)
+		
 	}
 	
 	private func tryGetByDragDrop(pos: NSValue)

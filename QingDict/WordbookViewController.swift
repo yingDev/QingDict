@@ -23,6 +23,7 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 			reload()
 		}
 	}
+
 	
 	var entryDoubleClickHandler: ((WordbookEntry)->())? = nil
 	
@@ -56,6 +57,19 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 		view.reloadData()
 	}
 	
+	func clearSelection()
+	{
+		if view.selectedRow >= 0
+		{
+			let lastSelectedRow = view.rowViewAtRow(view.selectedRow, makeIfNecessary: false)! as! WordbookRowView;
+			lastSelectedRow.txtTrans.hidden = true;
+			lastSelectedRow.contentView.constraints.filter({ cons in cons.identifier == "centerY" })[0].priority = 751;
+			lastSelectedRow.txtTittle.textColor = NSColor.darkGrayColor();
+			
+			view.selectRowIndexes(NSIndexSet(), byExtendingSelection: false)
+		}
+	}
+	
 	func numberOfRowsInTableView(tableView: NSTableView) -> Int
 	{
 		return entryCount
@@ -65,52 +79,58 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 	{
 		let rowView = tableView.makeViewWithIdentifier("mainCell", owner: nil) as! WordbookRowView
 		
-		let model = entries![row] //WordbookEntry(keyword: "English \(row)", trans: "n.英语 \(row)")
+		let model = entries![row]
 		
 		rowView.txtTittle.stringValue = model.keyword;
-		rowView.txtTrans.stringValue = model.trans == nil ? "" : model.trans! //.stringByReplacingOccurrencesOfString("  ", withString: " ").stringByReplacingOccurrencesOfString("\n", withString: " ")
-		
-		//TODO: temp
+		rowView.txtTrans.stringValue = model.trans == nil ? "" : model.trans!
 		rowView.txtTrans.hidden = true;
 		
-		rowView.onSwiped = {sender in
-			let r = tableView.rowForView(sender)
-			let indexes = NSIndexSet(index: r);
-			tableView.removeRowsAtIndexes(indexes, withAnimation: [.EffectFade, .SlideUp])
-			
-			//not removeEntry here. for effeciency
-			self.dataController.remove(self.entries[r].keyword)
-			self.entries.removeAtIndex(r)
-			self.entryCount = self.entries.count
-		}
-		
-		rowView.onClicked = { sender, clickCount in
-			if clickCount == 1
-			{
-				let indexes = NSIndexSet(index: tableView.rowForView(sender));
-				tableView.selectRowIndexes(indexes, byExtendingSelection: false);
-				
-				rowView.txtTrans.hidden = !rowView.txtTrans.hidden;
-
-			}else if clickCount == 2 //双击
-			{
-				let r = tableView.rowForView(sender)
-				
-				self.entryDoubleClickHandler?(self.entries[r]);
-				
-				print("double Click")
-			}
-			
-		}
+		rowView.onSwiped = self.handleRowSwiped
+		rowView.onClicked = self.handleRowClicked
 				
 		return rowView;
 
 	}
-
 	
-	func tableView(tableView: NSTableView, setObjectValue object: AnyObject?, forTableColumn tableColumn: NSTableColumn?, row: Int)
+	private func handleRowClicked(sender: WordbookRowView, clickCount: Int)
 	{
-		print("tableView setObjectValue")
+		if clickCount == 1
+		{
+			clearSelection()
+			
+			let indexes = NSIndexSet(index: view.rowForView(sender));
+			view.selectRowIndexes(indexes, byExtendingSelection: false);
+			
+			sender.txtTrans.hidden = false;
+			sender.txtTittle.textColor = NSColor.whiteColor()
+			
+			sender.contentView.constraints.filter({ cons in cons.identifier == "centerY" })[0].priority = 749;
+			
+			
+		}else if clickCount == 2 //双击
+		{
+			let r = view.rowForView(sender)
+			
+			self.entryDoubleClickHandler?(self.entries[r]);
+			
+			print("double Click")
+		}
+
 	}
 	
+	private func handleRowSwiped(sender: WordbookRowView)
+	{
+		let r = view.rowForView(sender)
+		let indexes = NSIndexSet(index: r);
+		view.removeRowsAtIndexes(indexes, withAnimation: [.EffectFade, .SlideUp])
+		
+		self.dataController.remove(self.entries[r].keyword)
+		self.entries.removeAtIndex(r)
+		self.entryCount = self.entries.count
+	}
+
+	func selectionShouldChangeInTableView(tableView: NSTableView) -> Bool
+	{
+		return false;
+	}
 }

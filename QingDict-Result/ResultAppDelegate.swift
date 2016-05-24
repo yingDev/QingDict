@@ -42,7 +42,7 @@ class ResultAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 		
 		if let encoded = keyword.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
 		{
-			let url = "http://dict.youdao.com/w/\(encoded)/";//http://dict.youdao.com/search?q=\(encoded)";
+			let url =  "http://m.youdao.com/dict?le=eng&q=\(encoded)#ec" //"http://dict.youdao.com/w/\(encoded)/";//http://dict.youdao.com/search?q=\(encoded)";
 			print(url);
 			
 			self.window.stared = isStared.value

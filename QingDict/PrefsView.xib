@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PrefsViewController" customModule="QingDict" customModuleProvider="target">
@@ -17,14 +17,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Gv3-RX-nGE" userLabel="View">
-            <rect key="frame" x="0.0" y="0.0" width="285" height="278"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="278"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v0O-FO-5lH" customClass="SolidColorView" customModule="QingDict" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="285" height="278"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="v0O-FO-5lH" customClass="SolidColorView" customModule="QingDict" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="278"/>
                     <subviews>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A8x-Wl-thE">
-                            <rect key="frame" x="89" y="242" width="106" height="18"/>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="A8x-Wl-thE">
+                            <rect key="frame" x="75" y="242" width="100" height="18"/>
                             <buttonCell key="cell" type="check" title="开机自动运行" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="kfJ-xX-osX">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -33,8 +33,8 @@
                                 <action selector="switchAutostart:" target="-2" id="MH8-IY-jdD"/>
                             </connections>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TRD-Ps-INK">
-                            <rect key="frame" x="72" y="196" width="140" height="32"/>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRD-Ps-INK">
+                            <rect key="frame" x="66" y="196" width="119" height="32"/>
                             <buttonCell key="cell" type="push" title="退出QingDict" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DJW-h0-4xh">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -43,18 +43,29 @@
                                 <action selector="quit:" target="-2" id="7pr-cy-Iq3"/>
                             </connections>
                         </button>
-                        <box horizontalHuggingPriority="248" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-C0-Gtm">
-                            <rect key="frame" x="0.0" y="181" width="285" height="5"/>
+                        <box horizontalHuggingPriority="248" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-C0-Gtm">
+                            <rect key="frame" x="0.0" y="180" width="250" height="5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="689-XY-VET"/>
+                            </constraints>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tn-9z-A0P">
-                            <rect key="frame" x="20" y="61" width="103" height="98"/>
+                            <rect key="frame" x="20" y="85" width="74" height="74"/>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="LMe-Zj-KrP"/>
                         </imageView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" placeholderIntrinsicWidth="245" placeholderIntrinsicHeight="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dz-Au-xpg">
+                            <rect key="frame" x="1" y="20" width="249" height="17"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="查词结果来自有道词典™ youdao.com" id="8dP-8I-4EX">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HU-Bl-ntD">
-                            <rect key="frame" x="140" y="135" width="120" height="24"/>
+                            <rect key="frame" x="100" y="135" width="120" height="24"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="QingDict" id="SKh-Lv-9Z1">
                                 <font key="font" metaFont="systemLight" size="20"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -62,7 +73,7 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cda-8S-zv8">
-                            <rect key="frame" x="142" y="84" width="116" height="17"/>
+                            <rect key="frame" x="102" y="84" width="116" height="17"/>
                             <buttonCell key="cell" type="inline" title="YingDev.com" bezelStyle="inline" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9s7-cD-NMy">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="systemSemibold" size="11"/>
@@ -72,7 +83,7 @@
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-6T-jYh">
-                            <rect key="frame" x="140" y="110" width="37" height="17"/>
+                            <rect key="frame" x="100" y="110" width="37" height="17"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1.0.0" id="1VV-A2-icp">
                                 <font key="font" metaFont="systemLight" size="13"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -80,7 +91,7 @@
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="J7x-gp-BZL">
-                            <rect key="frame" x="142" y="60" width="116" height="17"/>
+                            <rect key="frame" x="102" y="60" width="116" height="17"/>
                             <buttonCell key="cell" type="inline" title="捐助支持" bezelStyle="inline" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xsO-Gq-mBm">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="systemSemibold" size="11"/>
@@ -89,18 +100,27 @@
                                 <action selector="followLink:" target="-2" id="3fO-HM-NlL"/>
                             </connections>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" placeholderIntrinsicWidth="245" placeholderIntrinsicHeight="17" translatesAutoresizingMaskIntoConstraints="NO" id="2dz-Au-xpg">
-                            <rect key="frame" x="18" y="10" width="249" height="17"/>
-                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="当前版本查词结果来自有道词典™ youdao.com" id="8dP-8I-4EX">
-                                <font key="font" metaFont="smallSystem"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="TRD-Ps-INK" firstAttribute="centerX" secondItem="v0O-FO-5lH" secondAttribute="centerX" id="7AI-rX-Mfs"/>
+                        <constraint firstItem="2dz-Au-xpg" firstAttribute="centerX" secondItem="v0O-FO-5lH" secondAttribute="centerX" id="TEd-kg-pqE"/>
+                        <constraint firstItem="A8x-Wl-thE" firstAttribute="top" secondItem="v0O-FO-5lH" secondAttribute="top" constant="20" id="UlK-23-sy0"/>
+                        <constraint firstAttribute="bottom" secondItem="2dz-Au-xpg" secondAttribute="bottom" constant="20" symbolic="YES" id="Va2-gl-gBg"/>
+                        <constraint firstItem="EPj-C0-Gtm" firstAttribute="top" secondItem="TRD-Ps-INK" secondAttribute="bottom" constant="20" symbolic="YES" id="fZS-I5-GKe"/>
+                        <constraint firstItem="A8x-Wl-thE" firstAttribute="centerX" secondItem="v0O-FO-5lH" secondAttribute="centerX" id="jiM-Cn-wMz"/>
+                        <constraint firstItem="EPj-C0-Gtm" firstAttribute="leading" secondItem="v0O-FO-5lH" secondAttribute="leading" id="jmw-gP-IPv"/>
+                        <constraint firstItem="TRD-Ps-INK" firstAttribute="top" secondItem="A8x-Wl-thE" secondAttribute="bottom" constant="20" symbolic="YES" id="qJ1-Ba-iBO"/>
+                        <constraint firstAttribute="trailing" secondItem="EPj-C0-Gtm" secondAttribute="trailing" id="qin-cx-JUx"/>
+                    </constraints>
                 </customView>
             </subviews>
-            <point key="canvasLocation" x="414.5" y="-930"/>
+            <constraints>
+                <constraint firstItem="v0O-FO-5lH" firstAttribute="top" secondItem="Gv3-RX-nGE" secondAttribute="top" id="8zy-G6-8Db"/>
+                <constraint firstAttribute="bottom" secondItem="v0O-FO-5lH" secondAttribute="bottom" id="Wdt-tq-r47"/>
+                <constraint firstAttribute="trailing" secondItem="v0O-FO-5lH" secondAttribute="trailing" id="eJc-EN-dPm"/>
+                <constraint firstItem="v0O-FO-5lH" firstAttribute="leading" secondItem="Gv3-RX-nGE" secondAttribute="leading" id="siP-HW-aIL"/>
+            </constraints>
+            <point key="canvasLocation" x="414" y="-930"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="jNe-t7-dqq"/>
     </objects>
