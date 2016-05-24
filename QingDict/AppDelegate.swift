@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
 	func applicationDidFinishLaunching(aNotification: NSNotification)
 	{		
 		NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
-		delay(60)
+		delay(10)
 		{
 			self.beginCheckForUpdate(self.handleVersionCheckResult)
 		}
