@@ -6,6 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2E52964E1CF44918005DEB55 /* BuildProduct */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2E52964F1CF44918005DEB55 /* Build configuration list for PBXAggregateTarget "BuildProduct" */;
+			buildPhases = (
+				2E5296561CF44946005DEB55 /* ShellScript */,
+				2E5296581CF44BE5005DEB55 /* ShellScript */,
+			);
+			dependencies = (
+				2E5296531CF4491E005DEB55 /* PBXTargetDependency */,
+			);
+			name = BuildProduct;
+			productName = BuildProduct;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2E0C68A11C213DC0006FAB73 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0C68A01C213DC0006FAB73 /* PrefsViewController.swift */; };
 		2E0DE31C1CA6CFD60016F5A8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED2265B1C0FFBAC0033AD4C /* WebKit.framework */; };
@@ -39,6 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E5296521CF4491E005DEB55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED2263F1C0FDE590033AD4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ED226461C0FDE590033AD4C;
+			remoteInfo = QingDict;
+		};
 		2E7EB0331C205CB100A67024 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2ED0AC4E1C1FE19B00403BEB /* CommandLine.xcodeproj */;
@@ -274,6 +297,7 @@
 				2ED226451C0FDE590033AD4C /* Resources */,
 				2EF993FC1C228B43004FA412 /* CopyFiles */,
 				2E105F901C27099B000702C2 /* CopyFiles */,
+				2E5296571CF44A3F005DEB55 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -292,6 +316,7 @@
 				2EEFBAB41C1537720098E4A9 /* Frameworks */,
 				2EEFBAB51C1537720098E4A9 /* Resources */,
 				2E7EB0351C205CB100A67024 /* Embed Frameworks */,
+				2E52964D1CF444DE005DEB55 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -330,6 +355,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = YingDev.com;
 				TargetAttributes = {
+					2E52964E1CF44918005DEB55 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					2ED226461C0FDE590033AD4C = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 752P477K38;
@@ -371,6 +399,7 @@
 				2ED226461C0FDE590033AD4C /* QingDict */,
 				2EEFBAB61C1537720098E4A9 /* QingDict-Result */,
 				2EF993E71C228A24004FA412 /* Launch-Helper */,
+				2E52964E1CF44918005DEB55 /* BuildProduct */,
 			);
 		};
 /* End PBXProject section */
@@ -422,6 +451,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E52964D1CF444DE005DEB55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "say Building QingDict-Result\n#say deleting swift dylibs\n#dylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\n#dir=\"${TARGET_BUILD_DIR}/${TARGETNAME}.app/Contents/Frameworks\";\n\n#for f in $dylibs; do rm -f $dir/$f.dylib; done";
+		};
+		2E5296561CF44946005DEB55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\nsay Replacing dylibs\ntheDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app/Contents/Frameworks\"\nsourceDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\ntheDylib=\"$theDir/$lib.dylib\"\nrm -f $theDylib\nln -s $sourceDir/$lib.dylib $theDylib\ndone";
+		};
+		2E5296571CF44A3F005DEB55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "say Building QingDict";
+		};
+		2E5296581CF44BE5005DEB55 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "say code signning\n\nsource ~/.bash_profile\n\nif [ -z \"$DEVELOPER_ID\" ]\nthen\necho \"Please set your DEVELOPER_ID envar first!\";\nexit -1;\nfi\necho \"codesigning with DEVELOPER_ID=$DEVELOPER_ID\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app\";";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2ED226431C0FDE590033AD4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -464,6 +548,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E5296531CF4491E005DEB55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ED226461C0FDE590033AD4C /* QingDict */;
+			targetProxy = 2E5296521CF4491E005DEB55 /* PBXContainerItemProxy */;
+		};
 		2E7EB0341C205CB100A67024 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CommandLine;
@@ -472,6 +561,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		2E5296501CF44918005DEB55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2E5296511CF44918005DEB55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		2ED226521C0FDE590033AD4C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,6 +655,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -591,6 +695,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yingdev.QingDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -603,7 +708,7 @@
 				COPY_PHASE_STRIP = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = "QingDict-Result/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../Contents/Frameworks";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -620,7 +725,7 @@
 				COPY_PHASE_STRIP = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = "QingDict-Result/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../Contents/Frameworks";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yingdev.QingDict-Result";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,6 +769,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E52964F1CF44918005DEB55 /* Build configuration list for PBXAggregateTarget "BuildProduct" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E5296501CF44918005DEB55 /* Debug */,
+				2E5296511CF44918005DEB55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2ED226421C0FDE590033AD4C /* Build configuration list for PBXProject "QingDict" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
