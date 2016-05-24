@@ -502,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "say code signning\n\nsource ~/.bash_profile\n\nif [ -z \"$DEVELOPER_ID\" ]\nthen\necho \"Please set your DEVELOPER_ID envar first!\";\nexit -1;\nfi\necho \"codesigning with DEVELOPER_ID=$DEVELOPER_ID\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app\";";
+			shellScript = "say code signning\n\nsource ~/.bash_profile\n\nif [ -z \"$DEVELOPER_ID\" ]\nthen\necho \"Please set your DEVELOPER_ID envar first!\";\nexit -1;\nfi\necho \"codesigning with DEVELOPER_ID=$DEVELOPER_ID\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Library/LoginItems/Launch-Helper.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app\";";
 		};
 /* End PBXShellScriptBuildPhase section */
 
