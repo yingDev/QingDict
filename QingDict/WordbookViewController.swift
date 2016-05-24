@@ -102,7 +102,7 @@ class WordbookViewController : NSObject, NSTableViewDataSource, NSTableViewDeleg
 			view.selectRowIndexes(indexes, byExtendingSelection: false);
 			
 			sender.txtTrans.hidden = false;
-			sender.txtTittle.textColor = NSColor.whiteColor()
+			sender.txtTittle.textColor = NSColor.blackColor()
 			
 			sender.contentView.constraints.filter({ cons in cons.identifier == "centerY" })[0].priority = 749;
 			

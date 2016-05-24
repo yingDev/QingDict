@@ -463,7 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "say Building QingDict-Result\n#say deleting swift dylibs\n#dylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\n#dir=\"${TARGET_BUILD_DIR}/${TARGETNAME}.app/Contents/Frameworks\";\n\n#for f in $dylibs; do rm -f $dir/$f.dylib; done";
+			shellScript = "say Building QingDict-Result &\n#say deleting swift dylibs\n#dylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\n#dir=\"${TARGET_BUILD_DIR}/${TARGETNAME}.app/Contents/Frameworks\";\n\n#for f in $dylibs; do rm -f $dir/$f.dylib; done";
 		};
 		2E5296561CF44946005DEB55 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -476,7 +476,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\nsay Replacing dylibs\ntheDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app/Contents/Frameworks\"\nsourceDir=\"../../../../Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\ntheDylib=\"$theDir/$lib.dylib\"\nrm -f $theDylib\nln -s $sourceDir/$lib.dylib $theDylib\ndone";
+			shellScript = "# 与QingDict.app用到的dylib重复的，替换为symlink\nsay Replacing dylibs &\ntheDir=\"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app/Contents/Frameworks\"\nsourceDir=\"../../../../Frameworks\"\ndylibs=\"libswiftAppKit libswiftCore libswiftCoreData libswiftCoreGraphics libswiftCoreImage libswiftDarwin libswiftDispatch libswiftFoundation libswiftObjectiveC\"\n\nfor lib in $dylibs\ndo\ntheDylib=\"$theDir/$lib.dylib\"\nrm -f $theDylib\nln -s $sourceDir/$lib.dylib $theDylib\ndone";
 		};
 		2E5296571CF44A3F005DEB55 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -489,7 +489,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "say Building QingDict";
+			shellScript = "say Building QingDict &";
 		};
 		2E5296581CF44BE5005DEB55 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -502,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "say code signning\n\nsource ~/.bash_profile\n\nif [ -z \"$DEVELOPER_ID\" ]\nthen\necho \"Please set your DEVELOPER_ID envar first!\";\nexit -1;\nfi\necho \"codesigning with DEVELOPER_ID=$DEVELOPER_ID\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Library/LoginItems/Launch-Helper.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app\";";
+			shellScript = "say code signning &\n\nsource ~/.bash_profile\n\nif [ -z \"$DEVELOPER_ID\" ]\nthen\necho \"Please set your DEVELOPER_ID envar first!\";\nexit -1;\nfi\necho \"codesigning with DEVELOPER_ID=$DEVELOPER_ID\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Resources/QingDict-Result.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app/Contents/Library/LoginItems/Launch-Helper.app\";\n\ncodesign --force --sign \"Developer ID Application: $DEVELOPER_ID\" \"${TARGET_BUILD_DIR}/QingDict.app\";";
 		};
 /* End PBXShellScriptBuildPhase section */
 

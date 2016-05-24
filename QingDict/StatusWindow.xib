@@ -51,7 +51,7 @@
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-xp-YsH">
                                 <rect key="frame" x="217" y="6" width="29" height="26"/>
-                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="F50F4342-D485-429D-8B43-211623F22D7A" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1S-m7-zHM">
+                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="71A49627-EA6D-4945-9D12-2F790EAFDC4A" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O1S-m7-zHM">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -112,8 +112,8 @@
                                                                             <rect key="frame" x="10" y="2" width="230" height="18"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" alignment="center" title="n.实用；主义" id="cC8-jw-FKq">
                                                                                 <font key="font" metaFont="systemThin" size="14"/>
-                                                                                <color key="textColor" red="0.94487179487179485" green="0.94487179487179485" blue="0.94487179487179485" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="textColor" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.00033646567799999999" green="0.5532112656" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </textFieldCell>
                                                                         </textField>
                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="BYs-LR-C8z">
@@ -207,7 +207,7 @@
         <customObject id="v4H-hi-Mh4" customClass="NSTitlebarAccessoryViewController"/>
     </objects>
     <resources>
-        <image name="F50F4342-D485-429D-8B43-211623F22D7A" width="1" height="1">
+        <image name="71A49627-EA6D-4945-9D12-2F790EAFDC4A" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
